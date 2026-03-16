@@ -43,11 +43,12 @@ except ImportError:
 
 # ─── Patterns ────────────────────────────────────────────────────────────────
 
-# Lines with 3+ consecutive dots → dot-leader (Format A)
-TOC_LEADER_RE = re.compile(r'\.{3,}')
+# Lines with 3+ consecutive dots OR Unicode ellipsis (…, U+2026) → dot-leader (Format A)
+TOC_LEADER_RE = re.compile(r'(?:\.{3,}|[…\u2026]{2,}|(?:[.\u2026][\s]*){3,})')
 
 # Trailing dot-leaders + optional page number
-TRAILING_DOTS_RE = re.compile(r'[\s.]{3,}\d*\s*$')
+# Handles: ASCII dots, Unicode ellipsis (…), mixed sequences, with optional spaces
+TRAILING_DOTS_RE = re.compile(r'[\s.\u2026…]{2,}\d*\s*$')
 
 # Trailing standalone page number at end of line (Format B)
 TRAILING_PAGE_RE = re.compile(r'\s+\d{1,4}\s*$')
@@ -123,9 +124,10 @@ def clean_text(text: str) -> str:
 def strip_toc_trailer_A(text: str) -> str:
     """Strip trailing dot-leaders + page number (Format A).
 
-    Handles both 3+ dots ("...29") and 2-dot variants ("..20").
+    Handles ASCII dots, Unicode ellipsis (… U+2026), mixed sequences,
+    and 2-dot variants.
     """
-    return re.sub(r'[\s.]{2,}\d*\s*$', '', text).strip()
+    return re.sub(r'[\s.\u2026…]{2,}\d*\s*$', '', text).strip()
 
 
 def strip_toc_trailer_B(text: str) -> str:
@@ -209,8 +211,22 @@ def extract_text_pages(pdf_path: Union[str, Path]) -> List[List[str]]:
     return pages
 
 
+# Matches "Приложение A", "Приложение Б", "Приложение 1", etc.
+APPENDIX_RE = re.compile(
+    r'^\s*Приложени[еяий]\s*[A-ZА-ЯЁa-zа-яё0-9]',
+    re.UNICODE | re.IGNORECASE
+)
+
+# Matches TOC header line
+TOC_HEADER_RE = re.compile(r'^\s*(Оглавление|Содержание)\s*$', re.UNICODE | re.IGNORECASE)
+
+
 def parse_headings(pdf_path: Union[str, Path]) -> List[dict]:
     """Parse structured headings from the TOC of a medical PDF.
+
+    Only headings found between the "Оглавление"/"Содержание" header line and
+    the first "Приложение A/B/..." line are considered.  This prevents table
+    rows (e.g. quality-criteria tables) from being misclassified as headings.
 
     Returns a list of dicts::
 
@@ -224,9 +240,34 @@ def parse_headings(pdf_path: Union[str, Path]) -> List[dict]:
     pages = extract_text_pages(pdf_path)
     headings: List[dict] = []
 
+    toc_started = False   # True once we've seen "Оглавление"/"Содержание"
+    toc_ended   = False   # True once we've seen an "Приложение X" line
+
     for page_lines in pages:
+        if toc_ended:
+            break
+
+        # Detect the TOC header anywhere in the first 5 lines of the page
+        page_has_toc_header = any(
+            TOC_HEADER_RE.match(ln) for ln in page_lines[:5]
+        )
+        if page_has_toc_header:
+            toc_started = True
+
         fmt = classify_toc_page(page_lines)
+
+        # Also start if we hit a TOC-format page (even without explicit header)
+        if fmt and not toc_started:
+            toc_started = True
+
+        if not toc_started:
+            continue
+
         if not fmt:
+            # If we already collected headings and the page doesn't look like
+            # a TOC page any more, the TOC section is over — stop.
+            if headings:
+                break
             continue
 
         i = 0
@@ -236,6 +277,11 @@ def parse_headings(pdf_path: Union[str, Path]) -> List[dict]:
             if not stripped:
                 i += 1
                 continue
+
+            # Stop at "Приложение A / Б / 1 …"
+            if APPENDIX_RE.match(stripped):
+                toc_ended = True
+                break
 
             number, title = parse_toc_line(stripped, fmt)
             if not number:
@@ -260,6 +306,9 @@ def parse_headings(pdf_path: Union[str, Path]) -> List[dict]:
                 if not nxt or PAGE_NUMBER_RE.match(nxt):
                     break
                 if SKIP_LINE_RE.match(nxt):
+                    break
+                if APPENDIX_RE.match(nxt):
+                    toc_ended = True
                     break
 
                 # Does it start a new heading entry?
@@ -287,6 +336,9 @@ def parse_headings(pdf_path: Union[str, Path]) -> List[dict]:
                 if cont:
                     title = title + ' ' + cont
                 j += 1
+
+            if toc_ended:
+                break
 
             full_text = clean_text(title)
             if not full_text:
