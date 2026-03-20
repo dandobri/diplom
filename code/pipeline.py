@@ -1,10 +1,11 @@
 """
 PDF Parsing Pipeline
 ====================
-Two-step processing for all PDFs in an input directory:
+Three-step processing for all PDFs in an input directory:
 
   Step 1: heading_parser  → <name>.json        (TOC headings)
-  Step 2: content_parser  → <name>_content.json (sections with body text)
+  Step 2: content_parser  → <name>_content.json (sections with body text + lists)
+  Step 3: table_parser    → tables added to each section
 
 Usage
 -----
@@ -24,14 +25,15 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from heading_parser import parse_headings, deduplicate
 from content_parser import parse_sections
-from list_parser import annotate_sections
+from list_parser import annotate_sections as annotate_lists
+from table_parser import annotate_sections as annotate_tables
 
 
 def process_pdf(pdf_path: Path, out_dir: Path) -> None:
     name = pdf_path.stem
 
     # ── Step 1: parse headings from TOC ──────────────────────────────────────
-    print(f"  [1/2] Parsing headings … ", end='', flush=True)
+    print(f"  [1/3] Parsing headings … ", end='', flush=True)
     headings = deduplicate(parse_headings(pdf_path))
     headings_out = out_dir / f"{name}.json"
     headings_out.write_text(
@@ -40,17 +42,24 @@ def process_pdf(pdf_path: Path, out_dir: Path) -> None:
     )
     print(f"{len(headings)} headings → {headings_out.name}")
 
-    # ── Step 2: parse body content using the TOC headings ───────────────────
-    print(f"  [2/2] Parsing content  … ", end='', flush=True)
+    # ── Step 2: parse body content + lists ──────────────────────────────────
+    print(f"  [2/3] Parsing content  … ", end='', flush=True)
     sections = parse_sections(pdf_path, headings=headings)
-    annotate_sections(sections)
+    annotate_lists(sections)
+    total_lists = sum(len(s.get('lists', [])) for s in sections)
+    print(f"{len(sections)} sections, {total_lists} lists")
+
+    # ── Step 3: extract tables ────────────────────────────────────────────────
+    print(f"  [3/3] Extracting tables … ", end='', flush=True)
+    annotate_tables(sections, pdf_path, headings=headings)
+    total_tables = sum(len(s.get('tables', [])) for s in sections)
+
     content_out = out_dir / f"{name}_content.json"
     content_out.write_text(
         json.dumps(sections, ensure_ascii=False, indent=2),
         encoding='utf-8',
     )
-    total_lists = sum(len(s['lists']) for s in sections)
-    print(f"{len(sections)} sections, {total_lists} lists → {content_out.name}")
+    print(f"{total_tables} tables → {content_out.name}")
 
 
 def main() -> None:

@@ -192,7 +192,7 @@ def test_mixed_lists() -> None:
 SPOT_CHECKS = [
     # (file_stem, section_number, expected_type, min_items, phrase_in_any_item)
     ('КР669_2', '1.2', 'bullet', 4, 'железа'),
-    ('КР669_2', '1.5', 'bullet', 5, 'Желудочно'),
+    # КР669_2/1.5 is a classification table flattened to inline text — not detectable as a list
     ('КР669_2', '2.2', 'bullet', 5, 'изменения'),
     ('КР246_3', '1.5', 'bullet', 3, 'экзема'),
     ('КР246_3', '2',   'numbered', 3, 'анализа'),

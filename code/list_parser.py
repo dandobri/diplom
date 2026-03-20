@@ -1,7 +1,8 @@
 """
 List Parser
 ===========
-Extracts structured lists (bullet and numbered) from a section content string.
+Extracts structured lists (bullet and numbered) from a section content string,
+and classifies each list with a ``topic`` label derived from the section heading.
 
 The content is a flat string produced by content_parser.py. List items are
 identified by their markers and extracted into structured objects.
@@ -25,10 +26,19 @@ Each section gets a ``lists`` field::
     [
         {
             "type":  "bullet" | "numbered",
+            "topic": "симптомы" | "диагностика" | "лечение" | ...,
             "items": ["item text 1", "item text 2", ...]
         },
         ...
     ]
+
+Topic values
+------------
+Based on the section heading (see ``classify_topic``):
+  "определение", "этиология", "эпидемиология", "классификация",
+  "симптомы", "диагностика", "лабораторная_диагностика",
+  "инструментальная_диагностика", "лечение", "хирургическое_лечение",
+  "реабилитация", "профилактика", "организация", "прочее"
 
 Multiple distinct lists within a section are returned as separate objects.
 An empty list [] is returned when no lists are found.
@@ -37,7 +47,7 @@ An empty list [] is returned when no lists are found.
 from __future__ import annotations
 
 import re
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 # ─── Patterns ────────────────────────────────────────────────────────────────
 
@@ -73,6 +83,45 @@ MIN_ITEM_LEN = 8
 
 # Minimum number of items to call it a list
 MIN_LIST_SIZE = 2
+
+# ─── Topic classification ─────────────────────────────────────────────────────
+
+# Each entry: (topic_label, list_of_keyword_patterns)
+# Patterns are matched case-insensitively against the section heading.
+_TOPIC_RULES: List[Tuple[str, List[str]]] = [
+    ('определение',              ['определение']),
+    ('этиология',                ['этиология', 'патогенез']),
+    ('эпидемиология',            ['эпидемиология']),
+    ('кодирование',              ['кодирован', 'мкб', 'классификац.*болезн']),
+    ('классификация',            ['классификац']),
+    ('симптомы',                 ['клиническ.*картин', 'симптом', 'жалоб', 'анамнез']),
+    ('лабораторная_диагностика', ['лабораторн']),
+    ('инструментальная_диагностика', ['инструментальн']),
+    ('диагностика',              ['диагностик', 'обследован', 'физикальн', 'иные диагностическ']),
+    ('хирургическое_лечение',    ['хирургическ']),
+    ('лечение',                  ['лечени', 'терапи', 'медикаментозн', 'консерватив', 'немедикаментозн']),
+    ('реабилитация',             ['реабилитац', 'санаторн']),
+    ('профилактика',             ['профилактик', 'диспансерн']),
+    ('организация',              ['организац.*помощ', 'оказани.*помощ']),
+    ('дополнительная_информация', ['дополнительн.*информац', 'факторы.*исход']),
+    ('осложнения',               ['осложнени']),
+    ('прогноз',                  ['прогноз', 'исход']),
+]
+
+_COMPILED_RULES: List[Tuple[str, List[re.Pattern]]] = [
+    (label, [re.compile(p, re.IGNORECASE | re.UNICODE) for p in patterns])
+    for label, patterns in _TOPIC_RULES
+]
+
+
+def classify_topic(heading: str) -> str:
+    """Return a topic label for a list based on the section heading text."""
+    if not heading:
+        return 'прочее'
+    for label, patterns in _COMPILED_RULES:
+        if any(p.search(heading) for p in patterns):
+            return label
+    return 'прочее'
 
 
 # ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -120,11 +169,20 @@ def _is_citation_list(items: List[str]) -> bool:
 
 # ─── Core ────────────────────────────────────────────────────────────────────
 
-def extract_lists(content: str) -> List[dict]:
-    """Extract bullet and numbered lists from a flat content string."""
+def extract_lists(content: str, heading: str = '') -> List[dict]:
+    """Extract bullet and numbered lists from a flat content string.
+
+    Parameters
+    ----------
+    content:
+        The section body text.
+    heading:
+        The section heading (used to classify the topic of each list).
+    """
     if not content or not content.strip():
         return []
 
+    topic = classify_topic(heading)
     result: List[dict] = []
 
     # ── Unicode bullet lists ──────────────────────────────────────────────────
@@ -132,7 +190,7 @@ def extract_lists(content: str) -> List[dict]:
     ub_items = [_clean_item(s) for s in ub_segments]
     ub_items = [it for it in ub_items if len(it) >= MIN_ITEM_LEN]
     if len(ub_items) >= MIN_LIST_SIZE and not _is_citation_list(ub_items):
-        result.append({"type": "bullet", "items": ub_items})
+        result.append({"type": "bullet", "topic": topic, "items": ub_items})
 
     # ── Dash bullet lists ─────────────────────────────────────────────────────
     dash_segments = _split_on_pattern(content, DASH_MARKER_RE)
@@ -140,16 +198,15 @@ def extract_lists(content: str) -> List[dict]:
         dash_items = [_clean_item(s) for s in dash_segments]
         dash_items = [it for it in dash_items if len(it) >= MIN_ITEM_LEN]
         if len(dash_items) >= MIN_LIST_SIZE and not _is_citation_list(dash_items):
-            # Avoid duplicating items already captured by unicode bullets
             if not ub_items or set(dash_items) != set(ub_items):
-                result.append({"type": "bullet", "items": dash_items})
+                result.append({"type": "bullet", "topic": topic, "items": dash_items})
 
     # ── Numbered lists ────────────────────────────────────────────────────────
     num_segments = _split_on_pattern(content, NUMBERED_MARKER_RE)
     num_items = [_clean_item(s) for s in num_segments]
     num_items = [it for it in num_items if len(it) >= MIN_ITEM_LEN]
     if len(num_items) >= MIN_LIST_SIZE and not _is_citation_list(num_items):
-        result.append({"type": "numbered", "items": num_items})
+        result.append({"type": "numbered", "topic": topic, "items": num_items})
 
     return result
 
@@ -157,7 +214,10 @@ def extract_lists(content: str) -> List[dict]:
 def annotate_sections(sections: List[dict]) -> List[dict]:
     """Add a ``lists`` field to each section dict in-place and return the list."""
     for section in sections:
-        section['lists'] = extract_lists(section.get('content') or '')
+        section['lists'] = extract_lists(
+            section.get('content') or '',
+            heading=section.get('heading') or '',
+        )
     return sections
 
 
