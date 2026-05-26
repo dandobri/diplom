@@ -1,0 +1,94 @@
+2026-05-02 14:51:27,489 [INFO] src.io_utils: Logging to file: outputs_rerank/e5_large_bge_reranker/evaluate_with_reranker.log
+2026-05-02 14:51:27,490 [INFO] __main__: Args: {'queries_path': 'data/retrieval_eval_queries_plus_hard_v1.jsonl', 'embedding_model_key': 'e5_large', 'embedding_config': 'configs/embedding_models.yaml', 'embeddings_dir': 'outputs/embeddings/e5_large', 'reranker_key': 'bge_reranker_v2_m3', 'reranker_config': 'configs/rerankers.yaml', 'candidate_top_k': 30, 'final_top_k': 5, 'device': 'cuda', 'output_dir': 'outputs_rerank/e5_large_bge_reranker', 'limit': None, 'overwrite': True, 'save_all_candidates': False, 'verbose': False}
+2026-05-02 14:51:27,549 [INFO] __main__: Loaded 3702 embeddings (dim=1024) for e5_large from outputs/embeddings/e5_large
+2026-05-02 14:51:28,305 [WARNING] src.embedding_models: CUDA was requested but is not available. Falling back to CPU.
+2026-05-02 14:51:28,306 [WARNING] src.reranker: CUDA requested but unavailable — falling back to CPU.
+2026-05-02 14:51:28,307 [INFO] __main__: Loaded 65 queries from data/retrieval_eval_queries_plus_hard_v1.jsonl
+2026-05-02 14:51:31,222 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cpu
+2026-05-02 14:51:31,612 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:31,650 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:31,820 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:31,820 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-02 14:51:31,822 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-02 14:51:31,983 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:32,144 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:32,178 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-02 14:51:32,338 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:32,376 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:32,537 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:32,574 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:32,745 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:32,961 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:33,013 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:33,336 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:33,499 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:33,705 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:33,870 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:34,035 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:34,072 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:34,240 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:34,275 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:34,436 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:34,471 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:34,631 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:34,672 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:34,837 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:35,010 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-02 14:51:36,270 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-02 14:51:36,499 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:36,535 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:36,718 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-02 14:51:38,652 [INFO] src.reranker: Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cpu max_length=1024
+2026-05-02 14:51:38,810 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/modules.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:38,811 [INFO] sentence_transformers.base.model: No modules.json found for BAAI/bge-reranker-v2-m3, initializing a new CrossEncoder model.
+2026-05-02 14:51:38,974 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-02 14:51:39,139 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:39,178 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:39,217 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:39,384 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:51:39,547 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:51:39,587 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 14:51:39,762 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-05-02 14:51:39,948 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/xet-read-token/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e "HTTP/1.1 200 OK"
+2026-05-02 14:56:23,575 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:56:23,737 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:56:23,922 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:56:24,084 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:56:24,245 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:56:24,301 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 14:56:24,369 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 14:56:24,531 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:56:24,584 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 14:56:24,746 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:56:24,801 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 14:56:24,960 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:56:25,012 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 14:56:25,171 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-02 14:56:25,354 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-02 14:56:25,530 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/sentencepiece.bpe.model "HTTP/1.1 302 Found"
+2026-05-02 14:56:27,107 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer.json "HTTP/1.1 302 Found"
+2026-05-02 14:56:28,282 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-05-02 14:56:28,440 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 14:56:28,495 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-05-02 14:56:28,552 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-05-02 14:56:28,725 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-05-02 14:56:29,637 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-02 15:06:02,175 [INFO] __main__: Wrote detailed results: outputs_rerank/e5_large_bge_reranker/detailed_results.jsonl
+2026-05-02 15:06:02,178 [INFO] __main__: Wrote aggregate metrics: outputs_rerank/e5_large_bge_reranker/rerank_comparison_metrics.csv, outputs_rerank/e5_large_bge_reranker/rerank_comparison_metrics.json
+2026-05-02 15:06:02,178 [INFO] __main__: Wrote markdown report: outputs_rerank/e5_large_bge_reranker/rerank_report.md
+2026-05-04 23:13:07,594 [INFO] src.io_utils: Logging to file: outputs_rerank/e5_large_bge_reranker/evaluate_with_reranker.log
+2026-05-04 23:13:07,957 [INFO] src.evaluate_with_reranker: Loaded 3702 embeddings (dim=1024) for e5_large from outputs/embeddings/e5_large
+2026-05-04 23:13:07,991 [INFO] src.evaluate_with_reranker: Loaded 65 queries from data/retrieval_eval_queries_plus_hard_v1.jsonl
+2026-05-04 23:13:07,995 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cuda
+2026-05-04 23:13:14,306 [INFO] src.reranker: Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cuda max_length=1024
+2026-05-04 23:14:42,935 [INFO] src.evaluate_with_reranker: Wrote detailed results: outputs_rerank/e5_large_bge_reranker/detailed_results.jsonl
+2026-05-04 23:14:42,957 [INFO] src.evaluate_with_reranker: Wrote aggregate metrics: outputs_rerank/e5_large_bge_reranker/rerank_comparison_metrics.csv, outputs_rerank/e5_large_bge_reranker/rerank_comparison_metrics.json
+2026-05-04 23:14:42,966 [INFO] src.evaluate_with_reranker: Wrote markdown report: outputs_rerank/e5_large_bge_reranker/rerank_report.md
+2026-05-04 23:19:21,707 [INFO] src.io_utils: Logging to file: outputs_rerank/e5_large_bge_reranker/evaluate_with_reranker.log
+2026-05-04 23:19:22,048 [INFO] src.evaluate_with_reranker: Loaded 3702 embeddings (dim=1024) for e5_large from outputs/embeddings/e5_large
+2026-05-04 23:19:22,079 [INFO] src.evaluate_with_reranker: Loaded 65 queries from data/retrieval_eval_queries_plus_hard_v1.jsonl
+2026-05-04 23:19:22,083 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cuda
+2026-05-04 23:19:29,243 [INFO] src.reranker: Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cuda max_length=1024
+2026-05-04 23:20:14,618 [INFO] src.evaluate_with_reranker: Wrote detailed results: outputs_rerank/e5_large_bge_reranker/detailed_results.jsonl
+2026-05-04 23:20:14,639 [INFO] src.evaluate_with_reranker: Wrote aggregate metrics: outputs_rerank/e5_large_bge_reranker/rerank_comparison_metrics.csv, outputs_rerank/e5_large_bge_reranker/rerank_comparison_metrics.json
+2026-05-04 23:20:14,650 [INFO] src.evaluate_with_reranker: Wrote markdown report: outputs_rerank/e5_large_bge_reranker/rerank_report.md

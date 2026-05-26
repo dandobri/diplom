@@ -1,0 +1,9 @@
+2026-05-05 10:02:47,238 [INFO] src.io_utils: Logging to file: outputs_generation/compare_rag_vs_no_rag.log
+2026-05-05 10:02:47,261 [INFO] src.compare_rag_vs_no_rag: Loaded RAG=5 no_RAG=5
+2026-05-05 10:02:47,294 [INFO] src.compare_rag_vs_no_rag: Wrote pairs=outputs_generation/rag_vs_no_rag_pairs.jsonl summary=outputs_generation/rag_vs_no_rag_summary.csv (cases=5)
+2026-05-05 10:42:42,190 [INFO] src.io_utils: Logging to file: outputs_generation/compare_rag_vs_no_rag.log
+2026-05-05 10:42:42,223 [INFO] src.compare_rag_vs_no_rag: Loaded RAG=65 no_RAG=65
+2026-05-05 10:42:42,304 [INFO] src.compare_rag_vs_no_rag: Wrote pairs=outputs_generation/rag_vs_no_rag_pairs.jsonl summary=outputs_generation/rag_vs_no_rag_summary.csv (cases=65)
+2026-05-05 10:42:49,457 [INFO] src.io_utils: Logging to file: outputs_generation/compare_rag_vs_no_rag.log
+2026-05-05 10:42:49,491 [INFO] src.compare_rag_vs_no_rag: Loaded RAG=65 no_RAG=65
+2026-05-05 10:42:49,565 [INFO] src.compare_rag_vs_no_rag: Wrote pairs=outputs_generation/rag_vs_no_rag_pairs.jsonl summary=outputs_generation/rag_vs_no_rag_summary.csv (cases=65)

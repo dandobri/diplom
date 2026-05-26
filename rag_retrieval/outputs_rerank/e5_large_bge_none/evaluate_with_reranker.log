@@ -1,0 +1,8 @@
+2026-05-04 23:20:44,266 [INFO] src.io_utils: Logging to file: outputs_rerank/e5_large_bge_none/evaluate_with_reranker.log
+2026-05-04 23:20:44,633 [INFO] src.evaluate_with_reranker: Loaded 3702 embeddings (dim=1024) for e5_large from outputs/embeddings/e5_large
+2026-05-04 23:20:44,663 [INFO] src.evaluate_with_reranker: Loaded 65 queries from data/retrieval_eval_queries_plus_hard_v1.jsonl
+2026-05-04 23:20:44,669 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cuda
+2026-05-04 23:20:52,136 [INFO] src.reranker: Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cuda max_length=1024
+2026-05-04 23:21:37,639 [INFO] src.evaluate_with_reranker: Wrote detailed results: outputs_rerank/e5_large_bge_none/detailed_results.jsonl
+2026-05-04 23:21:37,660 [INFO] src.evaluate_with_reranker: Wrote aggregate metrics: outputs_rerank/e5_large_bge_none/rerank_comparison_metrics.csv, outputs_rerank/e5_large_bge_none/rerank_comparison_metrics.json
+2026-05-04 23:21:37,669 [INFO] src.evaluate_with_reranker: Wrote markdown report: outputs_rerank/e5_large_bge_none/rerank_report.md

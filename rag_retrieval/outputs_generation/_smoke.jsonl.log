@@ -1,0 +1,5 @@
+2026-05-02 21:53:38,950 [INFO] src.io_utils: Logging to file: outputs_generation/_smoke.jsonl.log
+2026-05-02 21:53:38,950 [INFO] __main__: Args: {'cases_path': 'data/retrieval_eval_queries_plus_hard_v1.jsonl', 'mode': 'no_rag', 'llm_config': 'configs/llm.yaml', 'llm_provider': 'mock', 'llm_model': None, 'embedding_model_key': None, 'embedding_config': None, 'embeddings_dir': None, 'reranker_key': None, 'reranker_config': None, 'candidate_top_k': 30, 'final_top_k': 5, 'context_selection': 'anchor_page', 'context_page_tolerance': 1, 'device': 'auto', 'output_path': 'outputs_generation/_smoke.jsonl', 'limit': 2, 'overwrite': True, 'resume': False, 'verbose': False}
+2026-05-02 21:53:38,952 [INFO] __main__: Loaded 2 cases from data/retrieval_eval_queries_plus_hard_v1.jsonl
+2026-05-02 21:53:38,953 [INFO] src.llm_client: LLMClient initialised: provider_key=mock type=mock model=gpt-4o-mini base_url=<openai default> (from env=no) api_key_set=False json_mode=True
+2026-05-02 21:53:38,967 [INFO] __main__: No-RAG generation done: ok=2 errors=0 -> outputs_generation/_smoke.jsonl

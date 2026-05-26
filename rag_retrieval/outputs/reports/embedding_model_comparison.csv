@@ -1,0 +1,5 @@
+model_key,model_name,embedding_dim,number_of_queries,hit_at_1,hit_at_5,hit_at_10,recall_at_5,precision_at_5,mrr,avg_query_time_ms,avg_retrieval_time_ms
+e5_large,intfloat/multilingual-e5-large,1024,65,0.8,0.9846,0.9846,0.9846,0.5754,0.8703,131.451,0.267
+bge_m3,BAAI/bge-m3,1024,65,0.8462,0.9538,1.0,0.9538,0.5569,0.8924,126.587,0.259
+mpnet_multilingual,sentence-transformers/paraphrase-multilingual-mpnet-base-v2,768,65,0.2923,0.6308,0.7385,0.6308,0.2277,0.4356,113.711,0.235
+e5_large_instruct,intfloat/multilingual-e5-large-instruct,1024,65,0.8,0.9846,0.9846,0.9846,0.6554,0.8659,135.462,0.334

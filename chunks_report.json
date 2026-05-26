@@ -1,0 +1,16 @@
+{
+  "documents": 120,
+  "document_ids": 120,
+  "chunks_total": 3702,
+  "avg_chunk_len_chars": 1337,
+  "min_chunk_len_chars": 450,
+  "max_chunk_len_chars": 5045,
+  "chunks_without_document_id": 0,
+  "chunks_without_document_title": 0,
+  "chunks_without_chunk_index": 0,
+  "chunks_without_content_hash": 0,
+  "chunks_without_section_title": 0,
+  "chunks_with_unknown_section_title": 0,
+  "chunks_without_page_start": 0,
+  "chunks_with_label_unknown": 0
+}

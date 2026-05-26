@@ -1,0 +1,75 @@
+# Конфигурация embedding-моделей для сравнения retrieval-качества.
+#
+# Каждая модель идентифицируется ключом (model_key). Этот же ключ:
+# - передается в build_embeddings.py через --model-key;
+# - используется как имя подпапки в outputs/embeddings/{model_key};
+# - попадает в run_info.json и в отчеты сравнения.
+#
+# Параметры:
+#   model_name        - идентификатор модели на HuggingFace
+#   backend           - "sentence_transformers" | "flag_embedding" | "openai"
+#   document_prefix   - префикс, который будет добавлен ко всем документным текстам
+#   query_prefix      - префикс, добавляемый к запросам (используется, если query_instruction пуст)
+#   query_instruction - инструкция для запросов (имеет приоритет над query_prefix)
+#   normalize         - нормализовывать ли embeddings (для cosine = dot product)
+#   batch_size        - размер батча для энкодинга
+#   max_length        - максимальная длина токенов
+#   trust_remote_code - флаг для HuggingFace (нужен для некоторых моделей)
+
+models:
+  e5_large:
+    model_name: "intfloat/multilingual-e5-large"
+    backend: "sentence_transformers"
+    document_prefix: "passage: "
+    query_prefix: "query: "
+    query_instruction: ""
+    normalize: true
+    batch_size: 32
+    max_length: 512
+    trust_remote_code: false
+
+  e5_large_instruct:
+    model_name: "intfloat/multilingual-e5-large-instruct"
+    backend: "sentence_transformers"
+    document_prefix: "passage: "
+    query_prefix: ""
+    query_instruction: "Instruct: Given a medical question in Russian, retrieve relevant clinical guideline passages.\nQuery: "
+    normalize: true
+    batch_size: 32
+    max_length: 512
+    trust_remote_code: false
+
+  bge_m3:
+    model_name: "BAAI/bge-m3"
+    backend: "sentence_transformers"
+    document_prefix: ""
+    query_prefix: ""
+    query_instruction: ""
+    normalize: true
+    batch_size: 32
+    max_length: 8192
+    trust_remote_code: true
+
+  mpnet_multilingual:
+    model_name: "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+    backend: "sentence_transformers"
+    document_prefix: ""
+    query_prefix: ""
+    query_instruction: ""
+    normalize: true
+    batch_size: 64
+    max_length: 512
+    trust_remote_code: false
+
+  # Опциональная OpenAI-модель. Используется, только если задан OPENAI_API_KEY.
+  # Чтобы основной код не зависел от этой модели, она по умолчанию не запускается.
+  openai_small:
+    model_name: "text-embedding-3-small"
+    backend: "openai"
+    document_prefix: ""
+    query_prefix: ""
+    query_instruction: ""
+    normalize: true
+    batch_size: 64
+    max_length: 8192
+    trust_remote_code: false

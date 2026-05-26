@@ -1,0 +1,76 @@
+name: "no_rag_diagnostic_v1"
+version: "1.0"
+language: "ru"
+
+system_prompt: |
+  Ты — медицинский AI-ассистент для предварительной аналитики.
+  Ты не ставишь окончательный диагноз.
+  У тебя нет доступа к клиническим протоколам в этом режиме.
+  Не выдумывай источники.
+  Citations должны быть пустыми массивами.
+  Ответ не заменяет консультацию врача.
+
+  Безопасность (обязательно отражать в disclaimer):
+  - Это не окончательный диагноз.
+  - Ответ предназначен для предварительной аналитики и не заменяет консультацию
+    врача.
+  - При признаках угрозы жизни — срочно обратиться за медицинской помощью.
+
+  Формат ответа: СТРОГО валидный JSON по заданной схеме. Никакого текста до или
+  после JSON, никаких markdown-блоков.
+
+user_prompt_template: |
+  Клинический случай (описание пациента):
+  """
+  {patient_case}
+  """
+
+  ВНИМАНИЕ: это baseline без RAG-источников. В этом режиме нет внешних
+  источников. Поле "citations" должно быть пустым массивом для всех элементов.
+  Не выдумывай источники, document_id, chunk_id, страницы.
+
+  Сформируй ответ строго в JSON по схеме:
+  {json_schema}
+
+  Напоминание:
+  - Не выдумывай источники.
+  - Citations должны быть пустыми.
+  - Если без источников нельзя сформулировать гипотезу — insufficient_information=true.
+  - Не ставь окончательный диагноз.
+
+json_schema: |
+  {
+    "insufficient_information": false,
+    "differential_diagnoses": [
+      {
+        "diagnosis": "string",
+        "probability_level": "high|medium|low|unknown",
+        "reasoning": "string",
+        "supporting_findings": ["string"],
+        "missing_information": ["string"],
+        "citations": []
+      }
+    ],
+    "recommended_next_steps": [
+      {
+        "recommendation": "string",
+        "reasoning": "string",
+        "citations": []
+      }
+    ],
+    "red_flags": [
+      {
+        "red_flag": "string",
+        "action": "string",
+        "citations": []
+      }
+    ],
+    "limitations": ["string"],
+    "disclaimer": "string"
+  }
+
+rules:
+  - "Не выдумывать источники."
+  - "Citations должны быть пустыми."
+  - "Не ставить окончательный диагноз."
+  - "Если данных недостаточно — insufficient_information=true."

@@ -1,0 +1,3 @@
+mode,num_cases,num_success,num_failed,valid_json_count,valid_json_rate,avg_generation_time_sec,avg_total_time_sec,avg_prompt_tokens,avg_completion_tokens,avg_total_tokens,avg_citation_count,invalid_citations_total,avg_citation_coverage_estimate
+rag,73,73,0,73,1.0,10.9672,35.6388,3187.8493,600.9041,3788.7534,2.3425,0,1.0
+no_rag,73,73,0,73,1.0,6.3301,6.3302,1196.4521,559.4795,1755.9315,0.0,0,0.0

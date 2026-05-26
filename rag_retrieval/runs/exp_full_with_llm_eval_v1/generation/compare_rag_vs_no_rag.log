@@ -1,0 +1,5 @@
+2026-05-05 14:08:43,182 [INFO] src.io_utils: Logging to file: runs/exp_full_with_llm_eval_v1/generation/compare_rag_vs_no_rag.log
+2026-05-05 14:54:27,718 [INFO] src.io_utils: Logging to file: runs/exp_full_with_llm_eval_v1/generation/compare_rag_vs_no_rag.log
+2026-05-05 14:54:27,758 [INFO] __main__: Loaded RAG=73 no_RAG=73
+2026-05-05 14:54:27,838 [INFO] __main__: Wrote pairs=runs/exp_full_with_llm_eval_v1/generation/rag_vs_no_rag_pairs.jsonl summary=runs/exp_full_with_llm_eval_v1/generation/rag_vs_no_rag_summary.csv (cases=73)
+2026-05-05 14:54:27,841 [INFO] __main__: Merge stats: {'num_cases': 73, 'rag_only': 0, 'no_rag_only': 0, 'both': 73, 'output_pairs': 'runs/exp_full_with_llm_eval_v1/generation/rag_vs_no_rag_pairs.jsonl', 'output_summary': 'runs/exp_full_with_llm_eval_v1/generation/rag_vs_no_rag_summary.csv'}

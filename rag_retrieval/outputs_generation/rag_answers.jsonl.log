@@ -1,0 +1,1081 @@
+2026-05-02 21:55:05,809 [INFO] src.io_utils: Logging to file: outputs_generation/rag_answers.jsonl.log
+2026-05-02 21:55:05,809 [INFO] __main__: Args: {'cases_path': 'data/retrieval_eval_queries_plus_hard_v1.jsonl', 'mode': 'rag', 'llm_config': 'configs/llm.yaml', 'llm_provider': None, 'llm_model': None, 'embedding_model_key': 'e5_large', 'embedding_config': 'configs/embedding_models.yaml', 'embeddings_dir': 'outputs/embeddings/e5_large', 'reranker_key': 'bge_reranker_v2_m3', 'reranker_config': 'configs/rerankers.yaml', 'candidate_top_k': 30, 'final_top_k': 5, 'context_selection': 'anchor_page', 'context_page_tolerance': 1, 'device': 'cpu', 'output_path': 'outputs_generation/rag_answers.jsonl', 'limit': 5, 'overwrite': True, 'resume': False, 'verbose': False}
+2026-05-02 21:55:05,810 [INFO] __main__: Loaded 5 cases from data/retrieval_eval_queries_plus_hard_v1.jsonl
+2026-05-02 21:55:05,811 [INFO] src.llm_client: LLMClient initialised: provider_key=openai_compatible type=openai model=gpt-4o-mini base_url=<openai default> (from env=no) api_key_set=False json_mode=True
+2026-05-02 21:55:06,599 [INFO] src.rag_generation: RetrievalEngine ready: docs=3702 dim=1024 emb=e5_large rer=bge_reranker_v2_m3 mode=anchor_page top_k=5
+2026-05-02 21:55:10,542 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cpu
+2026-05-02 21:55:11,117 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:11,118 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-02 21:55:11,163 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:11,338 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:11,342 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-02 21:55:11,510 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:11,680 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:11,731 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-02 21:55:11,930 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:11,977 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:12,143 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:12,190 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:12,359 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:12,533 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:12,585 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:12,916 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:13,102 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:13,275 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:13,454 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:13,632 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:13,682 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:13,850 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:13,897 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:14,066 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:14,110 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:14,279 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:14,325 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:14,497 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:14,676 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-02 21:55:15,802 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-02 21:55:16,050 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:16,095 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:16,281 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-02 21:55:18,300 [INFO] src.reranker: Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cpu max_length=1024
+2026-05-02 21:55:18,476 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/modules.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:18,478 [INFO] sentence_transformers.base.model: No modules.json found for BAAI/bge-reranker-v2-m3, initializing a new CrossEncoder model.
+2026-05-02 21:55:18,662 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-02 21:55:18,838 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:18,883 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:19,063 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:19,227 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:19,273 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:19,551 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:19,719 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:19,890 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:20,060 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:20,232 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:20,286 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:20,457 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:20,503 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:20,673 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:20,721 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:20,892 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:20,938 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:21,114 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:21,342 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-02 21:55:22,263 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-02 21:55:32,927 [INFO] src.io_utils: Logging to file: outputs_generation/rag_answers.jsonl.log
+2026-05-02 21:55:32,927 [INFO] __main__: Args: {'cases_path': 'data/retrieval_eval_queries_plus_hard_v1.jsonl', 'mode': 'rag', 'llm_config': 'configs/llm.yaml', 'llm_provider': None, 'llm_model': None, 'embedding_model_key': 'e5_large', 'embedding_config': 'configs/embedding_models.yaml', 'embeddings_dir': 'outputs/embeddings/e5_large', 'reranker_key': 'bge_reranker_v2_m3', 'reranker_config': 'configs/rerankers.yaml', 'candidate_top_k': 30, 'final_top_k': 5, 'context_selection': 'anchor_page', 'context_page_tolerance': 1, 'device': 'cpu', 'output_path': 'outputs_generation/rag_answers.jsonl', 'limit': 5, 'overwrite': True, 'resume': False, 'verbose': False}
+2026-05-02 21:55:32,928 [INFO] __main__: Loaded 5 cases from data/retrieval_eval_queries_plus_hard_v1.jsonl
+2026-05-02 21:55:32,929 [INFO] src.llm_client: LLMClient initialised: provider_key=openai_compatible type=openai model=gpt-4o-mini base_url=https://api.eliza.yandex.net/raw/openai/v1 (from env=OPENAI_BASE_URL) api_key_set=True json_mode=True
+2026-05-02 21:55:33,523 [INFO] src.rag_generation: RetrievalEngine ready: docs=3702 dim=1024 emb=e5_large rer=bge_reranker_v2_m3 mode=anchor_page top_k=5
+2026-05-02 21:55:36,067 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cpu
+2026-05-02 21:55:36,332 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:36,379 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:36,557 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:36,558 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-02 21:55:36,559 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-02 21:55:36,728 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:36,896 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:36,943 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-02 21:55:37,111 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:37,159 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:37,338 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:37,388 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:37,560 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:37,732 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:37,778 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:38,066 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:38,237 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:38,431 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:38,604 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:38,779 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:38,829 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:38,999 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:39,052 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:39,228 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:39,279 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:39,456 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:39,503 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:39,681 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:39,863 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-02 21:55:40,938 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-02 21:55:41,176 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:41,223 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:41,476 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-02 21:55:41,672 [INFO] src.reranker: Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cpu max_length=1024
+2026-05-02 21:55:41,838 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/modules.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:41,841 [INFO] sentence_transformers.base.model: No modules.json found for BAAI/bge-reranker-v2-m3, initializing a new CrossEncoder model.
+2026-05-02 21:55:42,011 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-02 21:55:42,180 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:42,227 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:42,406 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:42,583 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:42,629 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:42,906 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:43,097 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:43,277 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:43,466 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:43,644 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:43,690 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:43,861 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:43,908 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:44,082 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:44,129 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:44,309 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:55:44,357 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:55:44,528 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-02 21:55:44,710 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-02 21:55:45,616 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-02 21:55:56,390 [INFO] openai._base_client: Retrying request to /chat/completions in 0.451790 seconds
+2026-05-02 21:55:56,904 [INFO] openai._base_client: Retrying request to /chat/completions in 0.828022 seconds
+2026-05-02 21:55:57,807 [ERROR] src.rag_generation: LLM generation failed for case q001
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 21:56:07,309 [INFO] openai._base_client: Retrying request to /chat/completions in 0.422870 seconds
+2026-05-02 21:56:07,800 [INFO] openai._base_client: Retrying request to /chat/completions in 0.998422 seconds
+2026-05-02 21:56:08,882 [ERROR] src.rag_generation: LLM generation failed for case q002
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 21:56:17,792 [INFO] openai._base_client: Retrying request to /chat/completions in 0.458675 seconds
+2026-05-02 21:56:18,338 [INFO] openai._base_client: Retrying request to /chat/completions in 0.876581 seconds
+2026-05-02 21:56:19,281 [ERROR] src.rag_generation: LLM generation failed for case q003
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 21:56:27,830 [INFO] openai._base_client: Retrying request to /chat/completions in 0.436234 seconds
+2026-05-02 21:56:28,347 [INFO] openai._base_client: Retrying request to /chat/completions in 0.865795 seconds
+2026-05-02 21:56:29,282 [ERROR] src.rag_generation: LLM generation failed for case q004
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 21:56:38,959 [INFO] openai._base_client: Retrying request to /chat/completions in 0.463295 seconds
+2026-05-02 21:56:39,497 [INFO] openai._base_client: Retrying request to /chat/completions in 0.957041 seconds
+2026-05-02 21:56:40,505 [ERROR] src.rag_generation: LLM generation failed for case q005
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 21:56:40,508 [INFO] __main__: RAG generation done: ok=0 errors=5 -> outputs_generation/rag_answers.jsonl
+2026-05-02 21:59:21,032 [INFO] src.io_utils: Logging to file: outputs_generation/rag_answers.jsonl.log
+2026-05-02 21:59:21,032 [INFO] __main__: Args: {'cases_path': 'data/retrieval_eval_queries_plus_hard_v1.jsonl', 'mode': 'rag', 'llm_config': 'configs/llm.yaml', 'llm_provider': None, 'llm_model': None, 'embedding_model_key': 'e5_large', 'embedding_config': 'configs/embedding_models.yaml', 'embeddings_dir': 'outputs/embeddings/e5_large', 'reranker_key': 'bge_reranker_v2_m3', 'reranker_config': 'configs/rerankers.yaml', 'candidate_top_k': 30, 'final_top_k': 5, 'context_selection': 'anchor_page', 'context_page_tolerance': 1, 'device': 'cpu', 'output_path': 'outputs_generation/rag_answers.jsonl', 'limit': 5, 'overwrite': True, 'resume': False, 'verbose': False}
+2026-05-02 21:59:21,033 [INFO] __main__: Loaded 5 cases from data/retrieval_eval_queries_plus_hard_v1.jsonl
+2026-05-02 21:59:21,035 [INFO] src.llm_client: LLMClient initialised: provider_key=openai_compatible type=openai model=gpt-4o-mini base_url=https://api.eliza.yandex.net/raw/openai/v1 (from env=OPENAI_BASE_URL) api_key_set=True json_mode=True
+2026-05-02 21:59:21,673 [INFO] src.rag_generation: RetrievalEngine ready: docs=3702 dim=1024 emb=e5_large rer=bge_reranker_v2_m3 mode=anchor_page top_k=5
+2026-05-02 21:59:24,342 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cpu
+2026-05-02 21:59:24,890 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:24,890 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-02 21:59:24,930 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:25,105 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:25,109 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-02 21:59:25,272 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:25,435 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:25,473 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-02 21:59:25,638 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:25,678 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:25,843 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:25,883 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:26,058 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:26,240 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:26,284 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:26,566 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:26,731 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:26,948 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:27,110 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:27,276 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:27,314 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:27,475 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:27,516 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:27,684 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:27,721 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:27,906 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:27,944 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:28,119 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:28,301 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-02 21:59:29,452 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-02 21:59:29,668 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:29,706 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:29,885 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-02 21:59:30,059 [INFO] src.reranker: Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cpu max_length=1024
+2026-05-02 21:59:30,231 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/modules.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:30,232 [INFO] sentence_transformers.base.model: No modules.json found for BAAI/bge-reranker-v2-m3, initializing a new CrossEncoder model.
+2026-05-02 21:59:30,420 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-02 21:59:30,580 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:30,615 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:30,779 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:30,956 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:30,991 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:31,229 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:31,395 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:31,557 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:31,723 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:31,885 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:31,922 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:32,090 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:32,126 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:32,296 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:32,334 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:32,497 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-02 21:59:32,534 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-02 21:59:32,700 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-02 21:59:32,873 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-02 21:59:33,899 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-02 21:59:44,578 [INFO] openai._base_client: Retrying request to /chat/completions in 0.459579 seconds
+2026-05-02 21:59:45,101 [INFO] openai._base_client: Retrying request to /chat/completions in 0.880907 seconds
+2026-05-02 21:59:46,034 [ERROR] src.rag_generation: LLM generation failed for case q001
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 21:59:55,484 [INFO] openai._base_client: Retrying request to /chat/completions in 0.447372 seconds
+2026-05-02 21:59:55,998 [INFO] openai._base_client: Retrying request to /chat/completions in 0.960584 seconds
+2026-05-02 21:59:57,033 [ERROR] src.rag_generation: LLM generation failed for case q002
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 22:00:06,024 [INFO] openai._base_client: Retrying request to /chat/completions in 0.394254 seconds
+2026-05-02 22:00:06,482 [INFO] openai._base_client: Retrying request to /chat/completions in 0.998378 seconds
+2026-05-02 22:00:07,532 [ERROR] src.rag_generation: LLM generation failed for case q003
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 22:00:16,178 [INFO] openai._base_client: Retrying request to /chat/completions in 0.410923 seconds
+2026-05-02 22:00:16,656 [INFO] openai._base_client: Retrying request to /chat/completions in 0.775051 seconds
+2026-05-02 22:00:17,490 [ERROR] src.rag_generation: LLM generation failed for case q004
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 22:00:27,102 [INFO] openai._base_client: Retrying request to /chat/completions in 0.434813 seconds
+2026-05-02 22:00:27,604 [INFO] openai._base_client: Retrying request to /chat/completions in 0.905508 seconds
+2026-05-02 22:00:28,597 [ERROR] src.rag_generation: LLM generation failed for case q005
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/rag_generation.py", line 462, in generate_rag_answer
+    llm_response = llm_client.generate(messages)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 198, in generate
+    text, usage, raw = self._gen_openai(messages, temperature, max_tokens)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/Desktop/diplom/rag_retrieval/src/llm_client.py", line 269, in _gen_openai
+    resp = self._openai_client.chat.completions.create(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dobrisdv/.pyenv/versions/3.11.15/lib/python3.11/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2026-05-02 22:00:28,602 [INFO] __main__: RAG generation done: ok=0 errors=5 -> outputs_generation/rag_answers.jsonl

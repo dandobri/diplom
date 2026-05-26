@@ -1,0 +1,45 @@
+experiment:
+  name: "exp_retrieval_only"
+  description: "Retrieval-only: dense + reranking, без LLM-генерации"
+  output_dir: "runs/exp_retrieval_only"
+  seed: 42
+  overwrite: true
+
+data:
+  retrieval_queries_path: "data/retrieval_eval_queries_plus_hard_v1.jsonl"
+  chunks_path: "data/chunks_v1.jsonl"
+
+artifacts:
+  embeddings_root: "outputs/embeddings"
+  embeddings_dir: "outputs/embeddings/e5_large"
+
+retrieval_eval:
+  enabled: true
+  config_path: "configs/embedding_models.yaml"
+  model_keys:
+    - "e5_large"
+    - "e5_large_instruct"
+    - "bge_m3"
+    - "mpnet_multilingual"
+  top_k: 10
+  device: "auto"
+
+reranking_eval:
+  enabled: true
+  embedding_model_key: "e5_large"
+  embedding_config: "configs/embedding_models.yaml"
+  embeddings_dir: "outputs/embeddings/e5_large"
+  reranker_key: "bge_reranker_v2_m3"
+  reranker_config: "configs/rerankers.yaml"
+  candidate_top_k: 30
+  final_top_k: 5
+  context_selection: "anchor_page"
+  context_page_tolerance: 1
+  device: "auto"
+  save_all_candidates: false
+
+generation:
+  enabled: false
+
+comparison:
+  enabled: false

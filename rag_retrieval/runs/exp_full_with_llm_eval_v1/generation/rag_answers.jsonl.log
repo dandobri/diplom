@@ -1,0 +1,253 @@
+2026-05-05 14:10:42,450 [INFO] src.io_utils: Logging to file: runs/exp_full_with_llm_eval_v1/generation/rag_answers.jsonl.log
+2026-05-05 14:10:42,452 [INFO] __main__: Args: {'cases_path': 'data/clinical_cases_v1.jsonl', 'mode': 'rag', 'llm_config': 'configs/llm.yaml', 'llm_provider': None, 'llm_model': None, 'prompt_config': 'configs/prompts/rag_diagnostic_v2_strict.yaml', 'case_id_field': 'case_id', 'patient_case_field': 'patient_case', 'embedding_model_key': 'e5_large', 'embedding_config': 'configs/embedding_models.yaml', 'embeddings_dir': 'outputs/embeddings/e5_large', 'reranker_key': 'bge_reranker_v2_m3', 'reranker_config': 'configs/rerankers.yaml', 'candidate_top_k': 30, 'final_top_k': 5, 'context_selection': 'anchor_page', 'context_page_tolerance': 1, 'device': 'auto', 'output_path': 'runs/exp_full_with_llm_eval_v1/generation/rag_answers.jsonl', 'limit': 30, 'overwrite': True, 'resume': False, 'verbose': False}
+2026-05-05 14:10:42,481 [INFO] src.llm_client: LLMClient initialised: provider_key=openai_compatible type=openai model=gpt-4o-mini base_url=https://openrouter.ai/api/v1 (from env=no) api_key_set=True json_mode=True
+2026-05-05 14:10:52,382 [INFO] src.rag_generation: RetrievalEngine ready: docs=3702 dim=1024 emb=e5_large rer=bge_reranker_v2_m3 mode=anchor_page top_k=5
+2026-05-05 14:11:03,308 [INFO] src.io_utils: Logging to file: runs/exp_full_with_llm_eval_v1/generation/rag_answers.jsonl.log
+2026-05-05 14:11:03,310 [INFO] __main__: Args: {'cases_path': 'data/clinical_cases_v1.jsonl', 'mode': 'rag', 'llm_config': 'configs/llm.yaml', 'llm_provider': None, 'llm_model': None, 'prompt_config': 'configs/prompts/rag_diagnostic_v2_strict.yaml', 'case_id_field': 'case_id', 'patient_case_field': 'patient_case', 'embedding_model_key': 'e5_large', 'embedding_config': 'configs/embedding_models.yaml', 'embeddings_dir': 'outputs/embeddings/e5_large', 'reranker_key': 'bge_reranker_v2_m3', 'reranker_config': 'configs/rerankers.yaml', 'candidate_top_k': 30, 'final_top_k': 5, 'context_selection': 'anchor_page', 'context_page_tolerance': 1, 'device': 'auto', 'output_path': 'runs/exp_full_with_llm_eval_v1/generation/rag_answers.jsonl', 'limit': 74, 'overwrite': True, 'resume': False, 'verbose': False}
+2026-05-05 14:11:03,347 [INFO] src.llm_client: LLMClient initialised: provider_key=openai_compatible type=openai model=gpt-4o-mini base_url=https://openrouter.ai/api/v1 (from env=no) api_key_set=True json_mode=True
+2026-05-05 14:11:13,733 [INFO] src.rag_generation: RetrievalEngine ready: docs=3702 dim=1024 emb=e5_large rer=bge_reranker_v2_m3 mode=anchor_page top_k=5
+2026-05-05 14:11:38,318 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cuda
+2026-05-05 14:11:38,639 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:38,688 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-05 14:11:38,844 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:11:38,846 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-05 14:11:39,000 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:11:39,002 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-05 14:11:39,153 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:39,206 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-05 14:11:39,360 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:39,406 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-05 14:11:39,557 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:39,608 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-05 14:11:39,766 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:11:39,935 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:39,985 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-05 14:11:40,256 [ERROR] __main__: Case q001 failed
+Traceback (most recent call last):
+  File "/home/jupyter/project/rag_retrieval/src/generate_answers.py", line 114, in run_rag
+    rec = generate_rag_answer(
+  File "/home/jupyter/project/rag_retrieval/src/rag_generation.py", line 444, in generate_rag_answer
+    final_hits, rer_scores, dense_ranks, timings_ms = engine.retrieve(patient_case)
+  File "/home/jupyter/project/rag_retrieval/src/rag_generation.py", line 172, in retrieve
+    q_vec = self.embedding_model.encode_queries([query], show_progress_bar=False)[0]
+  File "/home/jupyter/project/rag_retrieval/src/embedding_models.py", line 94, in encode_queries
+    return self._encode(prefixed, batch_size=batch_size, show_progress_bar=show_progress_bar)
+  File "/home/jupyter/project/rag_retrieval/src/embedding_models.py", line 128, in _encode
+    return self._encode_st(texts, batch_size=bs, show_progress_bar=show_progress_bar)
+  File "/home/jupyter/project/rag_retrieval/src/embedding_models.py", line 164, in _encode_st
+    self._ensure_st()
+  File "/home/jupyter/project/rag_retrieval/src/embedding_models.py", line 151, in _ensure_st
+    self._st_model = SentenceTransformer(self.config.model_name, **kwargs)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/util/decorators.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/sentence_transformer/model.py", line 183, in __init__
+    super().__init__(
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/base/model.py", line 198, in __init__
+    modules, self.module_kwargs = self._load_modules(
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/base/model.py", line 974, in _load_modules
+    return self._load_config_modules(model_name_or_path, **load_kwargs)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/base/model.py", line 1165, in _load_config_modules
+    module = module_class.load(
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/base/modules/transformer.py", line 1708, in load
+    return cls(model_name_or_path=model_name_or_path, **init_kwargs)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/util/decorators.py", line 87, in wrapper
+    return func(*args, **kwargs)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/base/modules/transformer.py", line 642, in __init__
+    self.model = self._load_model(
+  File "/home/jupyter/.local/lib/python3.10/site-packages/sentence_transformers/base/modules/transformer.py", line 1414, in _load_model
+    return model_cls.from_pretrained(model_name_or_path, config=config, **model_kwargs)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 394, in from_pretrained
+    return model_class.from_pretrained(
+  File "/home/jupyter/.local/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4245, in from_pretrained
+    loading_info, disk_offload_index = cls._load_pretrained_model(model, state_dict, checkpoint_files, load_config)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4375, in _load_pretrained_model
+    loading_info, disk_offload_index = convert_and_load_state_dict_in_model(
+  File "/home/jupyter/.local/lib/python3.10/site-packages/transformers/core_model_loading.py", line 1386, in convert_and_load_state_dict_in_model
+    for first_param_name, mapping in tqdm(param_name_to_load.items(), desc="Loading weights"):
+  File "/home/jupyter/.local/lib/python3.10/site-packages/transformers/utils/logging.py", line 390, in __call__
+    return factory(*args, **kwargs)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/asyncio.py", line 24, in __init__
+    super().__init__(iterable, *args, **kwargs)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1098, in __init__
+    self.refresh(lock_args=self.lock_args)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1347, in refresh
+    self.display()
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1494, in display
+    self.moveto(pos)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1443, in moveto
+    self.fp.write('\n' * n + _term_move_up() * -n)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/utils.py", line 196, in inner
+    return func(*args, **kwargs)
+BrokenPipeError: [Errno 32] Broken pipe
+2026-05-05 14:11:40,345 [ERROR] __main__: Generation failed
+Traceback (most recent call last):
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1191, in __iter__
+    self.update(n - last_print_n)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1242, in update
+    self.refresh(lock_args=self.lock_args)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1347, in refresh
+    self.display()
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1495, in display
+    self.sp(self.__str__() if msg is None else msg)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 459, in print_status
+    fp_write('\r' + s + (' ' * max(last_len[0] - len_s, 0)))
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 452, in fp_write
+    fp.write(str(s))
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/utils.py", line 196, in inner
+    return func(*args, **kwargs)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jupyter/project/rag_retrieval/src/generate_answers.py", line 374, in main
+    run_generation(
+  File "/home/jupyter/project/rag_retrieval/src/generate_answers.py", line 273, in run_generation
+    return run_rag(
+  File "/home/jupyter/project/rag_retrieval/src/generate_answers.py", line 109, in run_rag
+    for c in tqdm(cases, desc="rag", file=sys.stdout, dynamic_ncols=True):
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1196, in __iter__
+    self.close()
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1302, in close
+    self.display(pos=0)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 1495, in display
+    self.sp(self.__str__() if msg is None else msg)
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 459, in print_status
+    fp_write('\r' + s + (' ' * max(last_len[0] - len_s, 0)))
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/std.py", line 452, in fp_write
+    fp.write(str(s))
+  File "/home/jupyter/.local/lib/python3.10/site-packages/tqdm/utils.py", line 196, in inner
+    return func(*args, **kwargs)
+BrokenPipeError: [Errno 32] Broken pipe
+2026-05-05 14:11:57,758 [INFO] src.embedding_models: Loading sentence-transformers model intfloat/multilingual-e5-large on device cuda
+2026-05-05 14:11:58,146 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:58,149 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-05 14:11:58,221 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-05 14:11:58,409 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:11:58,412 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-05 14:11:58,613 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:11:58,784 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:58,839 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-05 14:11:59,006 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:59,095 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-05 14:11:59,275 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:59,339 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-05 14:11:59,516 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:11:59,698 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:11:59,784 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:00,285 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:00,451 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:00,610 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:00,777 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:00,963 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:01,033 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:01,213 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:01,285 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:01,480 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:01,545 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:01,729 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:01,799 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:02,017 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:02,183 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-05 14:12:04,509 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-05 14:12:04,770 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:04,843 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:05,033 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-05 14:12:06,367 [INFO] src.reranker: Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cuda max_length=1024
+2026-05-05 14:12:06,533 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/modules.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:06,539 [INFO] sentence_transformers.base.model: No modules.json found for BAAI/bge-reranker-v2-m3, initializing a new CrossEncoder model.
+2026-05-05 14:12:06,718 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-05 14:12:06,890 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:06,964 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:07,144 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:07,315 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:07,385 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:07,784 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:08,049 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:08,224 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:08,394 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:08,578 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:08,643 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:08,829 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:08,906 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:09,083 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:09,146 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:09,335 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-05 14:12:09,404 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-05 14:12:09,610 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-05 14:12:09,782 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-05 14:12:11,358 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-05 14:12:20,107 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:12:26,800 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:12:34,074 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:12:43,056 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:12:49,507 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:12:57,138 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:13:03,474 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:13:12,811 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:13:36,918 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:13:48,735 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:14:05,056 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:14:14,849 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:14:25,364 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:14:34,272 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:14:49,799 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:15:12,343 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:15:34,906 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:15:54,674 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:16:11,660 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:16:20,792 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:16:39,807 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:16:49,417 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:17:00,035 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:17:07,738 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:17:17,433 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:17:38,690 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:17:44,566 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:17:51,981 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:17:58,640 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:18:05,989 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:18:12,647 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:18:22,164 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:18:28,413 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:18:48,145 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:19:12,300 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:19:31,949 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:19:37,641 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:19:47,185 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:19:55,965 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:20:02,658 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:20:09,967 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:20:28,356 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:20:37,876 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:20:44,865 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:21:03,041 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:21:20,173 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:21:26,891 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:21:38,220 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:21:45,160 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:22:06,250 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:22:13,661 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:22:22,484 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:22:36,798 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:22:45,109 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:23:00,447 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:23:19,157 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:23:29,329 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:23:44,140 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:23:52,691 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:23:58,939 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:24:06,914 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:24:17,508 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:24:25,792 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:24:36,503 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:24:42,890 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:24:58,757 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:25:24,548 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:25:31,439 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:25:43,979 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:26:20,126 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:26:33,127 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:26:42,033 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:26:58,094 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-05 14:27:14,074 [INFO] __main__: RAG generation done: ok=73 errors=0 -> runs/exp_full_with_llm_eval_v1/generation/rag_answers.jsonl

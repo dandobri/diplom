@@ -1,0 +1,36 @@
+{
+  "per_mode": [
+    {
+      "mode": "rag",
+      "num_cases": 73,
+      "num_success": 73,
+      "num_failed": 0,
+      "valid_json_count": 73,
+      "valid_json_rate": 1.0,
+      "avg_generation_time_sec": 11.692,
+      "avg_total_time_sec": 13.1497,
+      "avg_prompt_tokens": 3627.8493,
+      "avg_completion_tokens": 590.8219,
+      "avg_total_tokens": 4218.6712,
+      "avg_citation_count": 2.3288,
+      "invalid_citations_total": 0,
+      "avg_citation_coverage_estimate": 0.9932
+    },
+    {
+      "mode": "no_rag",
+      "num_cases": 73,
+      "num_success": 73,
+      "num_failed": 0,
+      "valid_json_count": 73,
+      "valid_json_rate": 1.0,
+      "avg_generation_time_sec": 9.4809,
+      "avg_total_time_sec": 9.481,
+      "avg_prompt_tokens": 1196.4521,
+      "avg_completion_tokens": 549.2055,
+      "avg_total_tokens": 1745.6575,
+      "avg_citation_count": 0.0,
+      "invalid_citations_total": 0,
+      "avg_citation_coverage_estimate": 0.0
+    }
+  ]
+}

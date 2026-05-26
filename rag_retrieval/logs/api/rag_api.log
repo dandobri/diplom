@@ -1,0 +1,283 @@
+2026-05-14 02:45:31,369 INFO src.api.retrieval_service Loading embedding artifacts from outputs/embeddings/e5_large
+2026-05-14 02:45:31,428 INFO src.api.retrieval_service Retriever ready: 3702 chunks, dim=1024
+2026-05-14 02:45:31,428 INFO src.api.retrieval_service Loading embedding model: e5_large
+2026-05-14 02:45:39,052 INFO src.embedding_models Loading sentence-transformers model intfloat/multilingual-e5-large on device cpu
+2026-05-14 02:45:39,335 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:39,366 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:39,530 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:39,531 WARNING huggingface_hub.utils._http Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-14 02:45:39,533 INFO sentence_transformers.base.model Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-14 02:45:39,690 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:39,842 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:39,868 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-14 02:45:40,025 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:40,052 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:40,211 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:40,239 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:40,400 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:40,554 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:40,579 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:40,867 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:41,022 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:41,186 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:41,344 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:41,497 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:41,523 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:41,675 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:41,701 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:41,856 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:41,884 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:42,040 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:42,065 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:42,295 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:42,458 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-14 02:45:43,588 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-14 02:45:43,797 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:43,824 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:43,989 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-14 02:45:45,855 INFO src.api.retrieval_service Embedding model loaded on device=cpu
+2026-05-14 02:45:45,855 INFO src.api.retrieval_service Loading reranker: bge_reranker_v2_m3
+2026-05-14 02:45:45,856 INFO src.reranker Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cpu max_length=1024
+2026-05-14 02:45:46,013 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/modules.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:46,014 INFO sentence_transformers.base.model No modules.json found for BAAI/bge-reranker-v2-m3, initializing a new CrossEncoder model.
+2026-05-14 02:45:46,170 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-14 02:45:46,322 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:46,347 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:46,502 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:46,659 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:46,687 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:46,967 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:47,131 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:47,291 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:47,454 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:47,610 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:47,638 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:47,797 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:47,824 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:47,982 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:48,008 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:48,162 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:45:48,189 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:45:48,346 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-14 02:45:48,509 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-14 02:45:49,438 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-14 02:45:51,356 INFO src.api.retrieval_service Reranker loaded
+2026-05-14 02:45:51,356 INFO src.api.retrieval_service Running pipeline warmup...
+2026-05-14 02:45:52,740 INFO src.api.retrieval_service Warmup complete
+2026-05-14 02:45:52,740 INFO src.api.retrieval_service Precomputing documents and stats caches...
+2026-05-14 02:45:52,743 INFO src.api.retrieval_service Caches ready: 120 documents, 3702 chunks
+2026-05-14 02:45:52,743 INFO src.api.retrieval_service RetrievalService fully loaded and ready
+2026-05-14 02:46:00,084 INFO src.api.retrieval_service Loading embedding artifacts from outputs/embeddings/e5_large
+2026-05-14 02:46:00,144 INFO src.api.retrieval_service Retriever ready: 3702 chunks, dim=1024
+2026-05-14 02:46:00,144 INFO src.api.retrieval_service Loading embedding model: e5_large
+2026-05-14 02:46:03,454 INFO src.embedding_models Loading sentence-transformers model intfloat/multilingual-e5-large on device cpu
+2026-05-14 02:46:03,674 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:03,702 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:03,858 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:03,860 INFO sentence_transformers.base.model Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-14 02:46:04,021 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:04,022 WARNING huggingface_hub.utils._http Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-14 02:46:04,179 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:04,205 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-14 02:46:04,359 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:04,386 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:04,539 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:04,569 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:04,727 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:04,883 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:04,909 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:05,161 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:05,314 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:05,469 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:05,622 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:05,776 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:05,802 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:05,955 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:05,981 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:06,138 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:06,165 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:06,314 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:06,341 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:06,502 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:06,663 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-14 02:46:07,786 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-14 02:46:08,001 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:08,029 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:08,205 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-14 02:46:08,367 INFO src.api.retrieval_service Embedding model loaded on device=cpu
+2026-05-14 02:46:08,367 INFO src.api.retrieval_service Loading reranker: bge_reranker_v2_m3
+2026-05-14 02:46:08,369 INFO src.reranker Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cpu max_length=1024
+2026-05-14 02:46:08,526 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/modules.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:08,527 INFO sentence_transformers.base.model No modules.json found for BAAI/bge-reranker-v2-m3, initializing a new CrossEncoder model.
+2026-05-14 02:46:08,683 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-14 02:46:08,836 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:08,860 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:09,019 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:09,173 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:09,199 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:09,426 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:09,579 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:09,962 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:10,121 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:10,274 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:10,300 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:10,453 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:10,477 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:10,626 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:10,656 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:10,815 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 02:46:10,841 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 02:46:10,996 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-14 02:46:11,155 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-14 02:46:12,058 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-14 02:46:12,212 INFO src.api.retrieval_service Reranker loaded
+2026-05-14 02:46:12,212 INFO src.api.retrieval_service Running pipeline warmup...
+2026-05-14 02:46:13,360 INFO src.api.retrieval_service Warmup complete
+2026-05-14 02:46:13,360 INFO src.api.retrieval_service Precomputing documents and stats caches...
+2026-05-14 02:46:13,363 INFO src.api.retrieval_service Caches ready: 120 documents, 3702 chunks
+2026-05-14 02:46:13,363 INFO src.api.retrieval_service RetrievalService fully loaded and ready
+2026-05-14 02:46:13,363 INFO src.api.main Shutting down RAG Retrieval API
+2026-05-14 02:46:38,462 INFO src.api.main method=GET path=/health status=200 latency_ms=1.5 trace_id=cd2f5276-9457-4d2d-be87-7b3dc2eb8f6b
+2026-05-14 02:46:58,527 INFO src.api.main method=POST path=/search status=200 latency_ms=9225.8 trace_id=b2b9335f-4050-442b-88db-b5aae1069c02
+2026-05-14 02:47:07,593 INFO src.api.main method=POST path=/search status=200 latency_ms=9063.3 trace_id=3f1b8aff-10bb-4f8f-91ea-3fff7455362e
+2026-05-14 02:47:16,591 INFO src.api.main method=POST path=/search status=200 latency_ms=8995.7 trace_id=583059bd-2485-4405-ba71-3b67a92dd5d5
+2026-05-14 02:47:25,275 INFO src.api.main method=POST path=/search status=200 latency_ms=8680.8 trace_id=d4828c4c-bff1-4422-846d-96772b2c6876
+2026-05-14 02:47:34,777 INFO src.api.main method=POST path=/search status=200 latency_ms=9499.5 trace_id=66fde392-ed3d-4014-8cf3-6c4980854725
+2026-05-14 02:47:43,184 INFO src.api.main method=POST path=/search status=200 latency_ms=8403.8 trace_id=befa50cf-ef99-4b45-ac25-466527d24606
+2026-05-14 02:47:51,733 INFO src.api.main method=POST path=/search status=200 latency_ms=8546.8 trace_id=04c50e49-003e-4bcc-9b11-33bd0058dd38
+2026-05-14 02:48:01,072 INFO src.api.main method=POST path=/search status=200 latency_ms=9335.7 trace_id=37073365-874a-47a0-b432-b2920d155479
+2026-05-14 02:48:09,797 INFO src.api.main method=POST path=/search status=200 latency_ms=8722.2 trace_id=9d5269ea-8ef7-4a3c-a6b0-86f79618d96c
+2026-05-14 02:48:18,314 INFO src.api.main method=POST path=/search status=200 latency_ms=8514.1 trace_id=284ad504-2f9d-44e3-a701-6ff9fe88cf8e
+2026-05-14 02:48:27,198 INFO src.api.main method=POST path=/search status=200 latency_ms=8881.9 trace_id=a9b5a0ad-eb3b-4aa2-b1dc-183ff2d0f151
+2026-05-14 02:48:36,381 INFO src.api.main method=POST path=/search status=200 latency_ms=9180.2 trace_id=3e3f1835-f14c-4c73-8800-1c7d912e3063
+2026-05-14 02:48:45,942 INFO src.api.main method=POST path=/search status=200 latency_ms=9558.7 trace_id=56cfa90e-3154-48e5-83d4-5bd43f76f011
+2026-05-14 02:48:55,096 INFO src.api.main method=POST path=/search status=200 latency_ms=9151.1 trace_id=8956c2b3-2de0-4f13-bbe2-ac91c00787d0
+2026-05-14 02:49:04,465 INFO src.api.main method=POST path=/search status=200 latency_ms=9366.8 trace_id=a110fc38-3734-4e0e-9df0-9623639a25ac
+2026-05-14 02:49:13,318 INFO src.api.main method=POST path=/search status=200 latency_ms=8850.7 trace_id=12f4b432-57cf-4f90-ac1d-96a1acac3d35
+2026-05-14 02:49:22,225 INFO src.api.main method=POST path=/search status=200 latency_ms=8904.8 trace_id=feffd2f3-3400-4bd2-b0e4-f27a00d0c460
+2026-05-14 02:49:31,228 INFO src.api.main method=POST path=/search status=200 latency_ms=8999.5 trace_id=18dd6044-84ef-42c3-8909-60c7a060ac35
+2026-05-14 02:49:40,468 INFO src.api.main method=POST path=/search status=200 latency_ms=9237.5 trace_id=1ebaafaf-81c1-40d1-b7a2-d3743ae6fd28
+2026-05-14 02:49:49,587 INFO src.api.main method=POST path=/search status=200 latency_ms=9117.3 trace_id=acc56b7c-7765-4102-a70b-251d26dd0855
+2026-05-14 02:49:58,647 INFO src.api.main method=POST path=/search status=200 latency_ms=9057.6 trace_id=d8bd9e1c-1e31-44b2-8e89-237e372e9acd
+2026-05-14 02:50:07,153 INFO src.api.main method=POST path=/search status=200 latency_ms=8502.7 trace_id=7dcac8e6-c596-40be-a818-b51d5faa8e6a
+2026-05-14 02:50:14,806 INFO src.api.main method=POST path=/search status=200 latency_ms=7651.1 trace_id=c4d6b6cd-0d7d-4d53-be98-12d40aad4753
+2026-05-14 02:50:24,914 INFO src.api.main method=POST path=/search status=200 latency_ms=10105.7 trace_id=ce7c041d-3eed-4f4f-8ced-2cd9a51d661b
+2026-05-14 02:50:33,126 INFO src.api.main method=POST path=/search status=200 latency_ms=8209.1 trace_id=fa95bbc1-f2da-4fe0-98e9-17453a3e11d7
+2026-05-14 02:50:41,715 INFO src.api.main method=POST path=/search status=200 latency_ms=8585.8 trace_id=c81fdb4f-95c8-4edf-b332-58b8a3f6e6a1
+2026-05-14 02:50:50,104 INFO src.api.main method=POST path=/search status=200 latency_ms=8387.3 trace_id=49184917-5003-4a14-ae5d-23bc1c124291
+2026-05-14 02:50:59,843 INFO src.api.main method=POST path=/search status=200 latency_ms=9736.4 trace_id=cdf506c4-b36b-4f67-aa40-e84bf0f5fcca
+2026-05-14 02:51:08,435 INFO src.api.main method=POST path=/search status=200 latency_ms=8588.5 trace_id=4b07381e-86c6-4e88-a46b-9443680a5969
+2026-05-14 02:51:17,075 INFO src.api.main method=POST path=/search status=200 latency_ms=8637.7 trace_id=f2e7952a-f811-42d3-a074-6de5e13635e7
+2026-05-14 02:51:25,279 INFO src.api.main method=POST path=/search status=200 latency_ms=8201.6 trace_id=e1678224-a8db-48b5-883f-3dc7d129e31f
+2026-05-14 02:51:34,046 INFO src.api.main method=POST path=/search status=200 latency_ms=8765.2 trace_id=a6e7a682-afe3-46bc-b9aa-a2c216bc634b
+2026-05-14 02:51:42,764 INFO src.api.main method=POST path=/search status=200 latency_ms=8715.6 trace_id=60fa8326-afad-4dc6-bc18-ea23183de314
+2026-05-14 02:51:50,630 INFO src.api.main method=POST path=/search status=200 latency_ms=7863.2 trace_id=0c75c671-2a92-447f-87d6-9800ad40766e
+2026-05-14 02:51:58,914 INFO src.api.main method=POST path=/search status=200 latency_ms=8281.8 trace_id=408301a9-59d6-4f38-9ae1-59ab901095fe
+2026-05-14 02:52:07,643 INFO src.api.main method=POST path=/search status=200 latency_ms=8726.7 trace_id=3fdead81-f8e0-4162-970e-4955b81a070f
+2026-05-14 02:52:16,287 INFO src.api.main method=POST path=/search status=200 latency_ms=8641.2 trace_id=6a9ab48e-e4ce-4eea-a246-09e0270d495a
+2026-05-14 02:52:24,553 INFO src.api.main method=POST path=/search status=200 latency_ms=8263.9 trace_id=bf31d241-4f7e-4f40-b7ed-05e26f9a64b5
+2026-05-14 02:52:32,135 INFO src.api.main method=POST path=/search status=200 latency_ms=7579.0 trace_id=60386d28-5c1a-422e-b377-b4c60a1439b7
+2026-05-14 02:52:40,088 INFO src.api.main method=POST path=/search status=200 latency_ms=7951.0 trace_id=0733a9ce-b656-4f52-b6cc-40221c5beefe
+2026-05-14 02:52:48,048 INFO src.api.main method=POST path=/search status=200 latency_ms=7957.8 trace_id=8a7cab62-c029-4c82-a953-5223f35678c0
+2026-05-14 02:52:56,838 INFO src.api.main method=POST path=/search status=200 latency_ms=8787.3 trace_id=4bc31e15-58aa-4a09-b757-c23c7c22cd5c
+2026-05-14 02:53:05,477 INFO src.api.main method=POST path=/search status=200 latency_ms=8636.3 trace_id=ef1db5fc-6bd8-4dfb-8e26-3b208008e0db
+2026-05-14 02:53:13,739 INFO src.api.main method=POST path=/search status=200 latency_ms=8260.1 trace_id=e7be3ad2-3fb0-4860-9cc5-d9eedf7581d0
+2026-05-14 02:53:22,261 INFO src.api.main method=POST path=/search status=200 latency_ms=8519.3 trace_id=c173b7a6-76d3-46f7-807a-6ff38d3a3955
+2026-05-14 02:53:31,228 INFO src.api.main method=POST path=/search status=200 latency_ms=8963.6 trace_id=edf6225f-346e-49d5-84d5-117b8075dafb
+2026-05-14 02:53:39,863 INFO src.api.main method=POST path=/search status=200 latency_ms=8632.3 trace_id=d5134042-a5ed-453f-b6ac-1b52b7879c46
+2026-05-14 02:53:50,391 INFO src.api.main method=POST path=/search status=200 latency_ms=10526.5 trace_id=61724e3b-7773-4d4f-83f4-a21fd0b077ba
+2026-05-14 02:53:59,796 INFO src.api.main method=POST path=/search status=200 latency_ms=9397.3 trace_id=abde0517-9ba9-4df3-b7c0-beacf5b677b7
+2026-05-14 02:54:09,063 INFO src.api.main method=POST path=/search status=200 latency_ms=9264.4 trace_id=713ac6e9-5d66-4013-815a-1344435de992
+2026-05-14 02:54:51,598 INFO src.api.main method=POST path=/search status=200 latency_ms=8660.6 trace_id=4a5a523e-4e92-4886-aa06-8ddfcffc54bd
+2026-05-14 02:55:03,532 INFO src.api.main Shutting down RAG Retrieval API
+2026-05-14 03:03:15,415 INFO src.api.retrieval_service Loading embedding artifacts from outputs/embeddings/e5_large
+2026-05-14 03:03:15,471 INFO src.api.retrieval_service Retriever ready: 3702 chunks, dim=1024
+2026-05-14 03:03:15,471 INFO src.api.retrieval_service Loading embedding model: e5_large
+2026-05-14 03:03:19,125 INFO src.embedding_models Loading sentence-transformers model intfloat/multilingual-e5-large on device cpu
+2026-05-14 03:03:19,468 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:19,469 WARNING huggingface_hub.utils._http Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-14 03:03:19,514 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:19,664 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:19,667 INFO sentence_transformers.base.model Loading SentenceTransformer model from intfloat/multilingual-e5-large.
+2026-05-14 03:03:19,820 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:19,971 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:20,015 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/README.md "HTTP/1.1 200 OK"
+2026-05-14 03:03:20,163 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:20,205 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/modules.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:20,359 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:20,403 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:20,553 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:20,710 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:20,757 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:21,083 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:21,275 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:21,433 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:21,587 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:21,737 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:21,781 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:21,926 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:21,970 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:22,122 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:22,168 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:22,320 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:22,364 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:22,523 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:22,679 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-14 03:03:23,798 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-14 03:03:24,010 INFO httpx HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-large/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:24,055 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/intfloat/multilingual-e5-large/3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:24,217 INFO httpx HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-large "HTTP/1.1 200 OK"
+2026-05-14 03:03:26,236 INFO src.api.retrieval_service Embedding model loaded on device=cpu
+2026-05-14 03:03:26,237 INFO src.api.retrieval_service Loading reranker: bge_reranker_v2_m3
+2026-05-14 03:03:26,238 INFO src.reranker Loading CrossEncoder BAAI/bge-reranker-v2-m3 on device=cpu max_length=1024
+2026-05-14 03:03:26,386 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/modules.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:26,388 INFO sentence_transformers.base.model No modules.json found for BAAI/bge-reranker-v2-m3, initializing a new CrossEncoder model.
+2026-05-14 03:03:26,540 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-14 03:03:26,684 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:26,728 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:26,876 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:27,020 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:27,065 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:27,327 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:27,481 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:27,637 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:27,786 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:27,936 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:27,981 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:28,127 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:28,174 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:28,329 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:28,374 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:28,524 INFO httpx HTTP Request: HEAD https://huggingface.co/BAAI/bge-reranker-v2-m3/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-14 03:03:28,567 INFO httpx HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-reranker-v2-m3/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-14 03:03:28,720 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-14 03:03:28,874 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-14 03:03:29,820 INFO httpx HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-reranker-v2-m3 "HTTP/1.1 200 OK"
+2026-05-14 03:03:31,961 INFO src.api.retrieval_service Reranker loaded
+2026-05-14 03:03:31,961 INFO src.api.retrieval_service Running pipeline warmup...
+2026-05-14 03:03:33,234 INFO src.api.retrieval_service Warmup complete
+2026-05-14 03:03:33,234 INFO src.api.retrieval_service Precomputing documents and stats caches...
+2026-05-14 03:03:33,237 INFO src.api.retrieval_service Caches ready: 120 documents, 3702 chunks
+2026-05-14 03:03:33,237 INFO src.api.retrieval_service RetrievalService fully loaded and ready
+2026-05-14 03:03:52,900 INFO src.api.main method=GET path=/health status=200 latency_ms=2.5 trace_id=f1f01911-42cd-4008-a03e-f5f77d0b8da4
+2026-05-14 03:04:02,796 INFO src.api.main method=POST path=/search status=200 latency_ms=103.2 trace_id=fa7b91c2-a222-4172-bf5a-823489cf6a71
+2026-05-14 03:04:02,879 INFO src.api.main method=POST path=/search status=200 latency_ms=79.8 trace_id=2b1aa461-d060-4ff5-81da-00cfc50d1631
+2026-05-14 03:04:02,962 INFO src.api.main method=POST path=/search status=200 latency_ms=81.0 trace_id=48815a9b-75cd-4ff4-a0a7-2a1f402b1a3c
+2026-05-14 03:04:03,030 INFO src.api.main method=POST path=/search status=200 latency_ms=66.1 trace_id=5db3c004-0c33-47c4-a5a1-0de44fc4bebc
+2026-05-14 03:04:03,119 INFO src.api.main method=POST path=/search status=200 latency_ms=86.5 trace_id=1dcca552-fe19-42d1-b4d0-e3da1483eef7
+2026-05-14 03:04:03,194 INFO src.api.main method=POST path=/search status=200 latency_ms=71.7 trace_id=f44a4c3b-e880-4f1a-bbb4-e49adbb3403f
+2026-05-14 03:04:03,274 INFO src.api.main method=POST path=/search status=200 latency_ms=78.6 trace_id=7c8f1a17-9c25-40d1-9e3e-1fb71cdd9461
+2026-05-14 03:04:03,356 INFO src.api.main method=POST path=/search status=200 latency_ms=79.2 trace_id=6850d5fa-1db9-44a7-bdbf-cb439a2a096b
+2026-05-14 03:04:03,437 INFO src.api.main method=POST path=/search status=200 latency_ms=78.9 trace_id=a9b19f68-a480-4161-b6ad-b664966cc85d
+2026-05-14 03:04:03,505 INFO src.api.main method=POST path=/search status=200 latency_ms=66.0 trace_id=e63729cd-55d5-4f00-930d-3cd2ec5ce864
+2026-05-14 03:04:03,586 INFO src.api.main method=POST path=/search status=200 latency_ms=78.6 trace_id=97be0d09-d75a-4089-a075-2613e1f3f78d
+2026-05-14 03:04:03,653 INFO src.api.main method=POST path=/search status=200 latency_ms=65.4 trace_id=1a20ee1f-64ce-4827-be66-9e4e01b72ee5
+2026-05-14 03:04:03,733 INFO src.api.main method=POST path=/search status=200 latency_ms=77.7 trace_id=6712c7d0-5567-47ca-9808-3b61e5498bf4
+2026-05-14 03:04:03,814 INFO src.api.main method=POST path=/search status=200 latency_ms=78.7 trace_id=db44477a-7a02-470b-9c8c-7dc89f54009a
+2026-05-14 03:04:03,895 INFO src.api.main method=POST path=/search status=200 latency_ms=79.8 trace_id=ac650ce7-ca73-4c69-be15-ea48feaf43e2
+2026-05-14 03:04:03,962 INFO src.api.main method=POST path=/search status=200 latency_ms=65.0 trace_id=70909f2a-dfd7-445c-9032-3082055eb7a4
+2026-05-14 03:04:04,029 INFO src.api.main method=POST path=/search status=200 latency_ms=64.6 trace_id=d28ba4a5-8d32-43be-b4d4-6d6cfd6e8777
+2026-05-14 03:04:04,109 INFO src.api.main method=POST path=/search status=200 latency_ms=77.6 trace_id=158d0bb0-4727-47fc-ae56-adba3d952988
+2026-05-14 03:04:04,206 INFO src.api.main method=POST path=/search status=200 latency_ms=95.8 trace_id=64987942-06db-4737-954f-71d047696b7e
+2026-05-14 03:04:04,293 INFO src.api.main method=POST path=/search status=200 latency_ms=84.7 trace_id=5de4d974-2d04-466d-8764-187cd33c1138
+2026-05-14 03:04:13,940 INFO src.api.main Shutting down RAG Retrieval API

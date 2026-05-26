@@ -1,0 +1,529 @@
+{
+  "num_requests": 50,
+  "num_success": 50,
+  "num_errors": 0,
+  "success_rate": 1.0,
+  "avg_latency_ms": 8791.93,
+  "p50_latency_ms": 8723.76,
+  "p95_latency_ms": 9655.6,
+  "max_latency_ms": 10525.77,
+  "min_latency_ms": 7578.33,
+  "target_latency_ms": 2000.0,
+  "target_pass_rate": 0.0,
+  "bench_wall_time_ms": 439768.18,
+  "latency_source": "server",
+  "config": {
+    "url": "http://localhost:8000/search",
+    "queries_path": "data/clinical_cases_v1.jsonl",
+    "query_field": "patient_case",
+    "limit": 50,
+    "candidate_top_k": 30,
+    "final_top_k": 5,
+    "use_reranker": true,
+    "context_selection": "anchor_page",
+    "concurrency": 1
+  },
+  "errors": [],
+  "individual_results": [
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9231.3,
+      "server_latency_ms": 9224.39,
+      "num_results": 5,
+      "trace_id": "dfb96adf-165a-4c24-8613-70f501a63f46",
+      "error": null,
+      "query": "как подтвердить ишемическую болезнь сердца у пациента со стенокардией и факторами сердечно-сосудистого риска"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9065.8,
+      "server_latency_ms": 9062.64,
+      "num_results": 5,
+      "trace_id": "51e453bc-7ba1-4a50-b5cb-d014954a3594",
+      "error": null,
+      "query": "пациент жалуется на одышку при нагрузке, ночную одышку, утомляемость и отеки лодыжек — про симптомы сердечной недостаточности нужен"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8998.67,
+      "server_latency_ms": 8995.02,
+      "num_results": 5,
+      "trace_id": "56a83894-51c4-4443-9228-bf25a2e27774",
+      "error": null,
+      "query": "сильное давление за грудиной в покое с иррадиацией в левую руку, тошнотой и потливостью, не проходит после нитроглицерина"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8683.56,
+      "server_latency_ms": 8680.09,
+      "num_results": 5,
+      "trace_id": "93d98387-1606-4687-a837-a553c8d56cc8",
+      "error": null,
+      "query": "какие этапы обследования нужны при подозрении на легочную гипертензию и как определить клиническую группу"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9502.63,
+      "server_latency_ms": 9498.81,
+      "num_results": 5,
+      "trace_id": "56f9db50-f429-471f-ab2d-cbc943c4b347",
+      "error": null,
+      "query": "у пациента редкий пульс, слабость, головокружения и обмороки — найти фрагменты про проявления брадиаритмии"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8406.07,
+      "server_latency_ms": 8403.11,
+      "num_results": 5,
+      "trace_id": "ee545b35-3d00-4d50-9da4-33b5bf79fd3a",
+      "error": null,
+      "query": "какой критерий толщины стенки левого желудочка используется для диагностики гипертрофической кардиомиопатии"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8548.96,
+      "server_latency_ms": 8546.1,
+      "num_results": 5,
+      "trace_id": "3eb56e51-faf1-4b08-be2b-557ecf4aec10",
+      "error": null,
+      "query": "как описать симптомы и риск инсульта у пациента с фибрилляцией предсердий по схеме 4S-AF"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9338.86,
+      "server_latency_ms": 9334.96,
+      "num_results": 5,
+      "trace_id": "65f5a39a-ebc0-4774-9bbb-a10f7b50fb7c",
+      "error": null,
+      "query": "лихорадка, ознобы, новый шум регургитации и признаки эмболий — описывает клиническую картину инфекционного эндокардита"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8724.55,
+      "server_latency_ms": 8721.5,
+      "num_results": 5,
+      "trace_id": "e2744132-23fb-4299-bad1-4c6ff6eeb182",
+      "error": null,
+      "query": "у пациента повышенное давление без жалоб, но есть утренние головные боли, храп и дневная сонливость — что искать по артериальной гипертензии"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8516.24,
+      "server_latency_ms": 8513.48,
+      "num_results": 5,
+      "trace_id": "ab97c4de-c64b-48e7-9e79-baf646e81ad4",
+      "error": null,
+      "query": "как установить диагноз тромбофлебита поверхностных вен при воспалении по ходу подкожной вены"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8884.23,
+      "server_latency_ms": 8881.24,
+      "num_results": 5,
+      "trace_id": "6fb77ba4-f467-476d-9c22-b3922aded03a",
+      "error": null,
+      "query": "острая боль в груди усиливается на вдохе и при кашле, уменьшается в положении лежа на животе — про перикардит"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9182.6,
+      "server_latency_ms": 9179.58,
+      "num_results": 5,
+      "trace_id": "5502131b-0df0-4ade-8cd0-59545a90c618",
+      "error": null,
+      "query": "какую диету рекомендуют для профилактики сердечно-сосудистых заболеваний при дислипидемии"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9561.4,
+      "server_latency_ms": 9557.7,
+      "num_results": 5,
+      "trace_id": "a766bada-bfbf-4dfb-84cf-6696bbd60c2f",
+      "error": null,
+      "query": "женщина с цервицитом и слизисто-гнойными выделениями, нужно найти клинические признаки хламидийной инфекции нижних мочеполовых путей"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9153.43,
+      "server_latency_ms": 9150.34,
+      "num_results": 5,
+      "trace_id": "caac8276-d19c-4b81-853d-965eb741cd61",
+      "error": null,
+      "query": "красно-коричневые пятна в паховых складках и кораллово-красное свечение в лампе Вуда"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9369.07,
+      "server_latency_ms": 9366.07,
+      "num_results": 5,
+      "trace_id": "7321716d-0db8-4c78-9f91-f282ae49afd5",
+      "error": null,
+      "query": "интенсивно зудящие сгруппированные пузырьки и папулы на локтях, коленях и ягодицах с хроническими рецидивами"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8852.6,
+      "server_latency_ms": 8850.01,
+      "num_results": 5,
+      "trace_id": "a4c7c5fe-a874-4872-919d-c69954a5189f",
+      "error": null,
+      "query": "как диагностировать аллергический контактный дерматит после повторного контакта с косметикой или металлом"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8908.81,
+      "server_latency_ms": 8904.13,
+      "num_results": 5,
+      "trace_id": "8c08d406-236d-4942-8677-0beaf6713be3",
+      "error": null,
+      "query": "у ребенка на лице и веках безболезненные плотные узелки с пупковидным вдавлением в центре"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9001.72,
+      "server_latency_ms": 8998.78,
+      "num_results": 5,
+      "trace_id": "985a80f4-9412-4dec-842b-68dc70eab434",
+      "error": null,
+      "query": "эритема, гиперкератоз и атрофия на коже лица и волосистой части головы, чешуйки отделяются болезненно"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9239.41,
+      "server_latency_ms": 9236.81,
+      "num_results": 5,
+      "trace_id": "48c77322-6e11-4e60-9545-cd1b902d076e",
+      "error": null,
+      "query": "ярко-розовые бляшки с серебристо-белыми чешуйками и феноменом Кебнера — найти протокол по псориазу"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9119.44,
+      "server_latency_ms": 9116.66,
+      "num_results": 5,
+      "trace_id": "0943521e-0fe5-44cf-8a6b-5999e836dddd",
+      "error": null,
+      "query": "серо-желтые пенистые выделения с неприятным запахом, зуд и жжение при мочеиспускании у женщины"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9059.87,
+      "server_latency_ms": 9056.84,
+      "num_results": 5,
+      "trace_id": "c9bd3018-6f15-4f09-9439-05e76c45fba9",
+      "error": null,
+      "query": "острая мокнущая сыпь с микровезикулами, серозными корками, зудом и жжением"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8504.99,
+      "server_latency_ms": 8502.07,
+      "num_results": 5,
+      "trace_id": "ff7da712-208e-4381-81be-104dc729a459",
+      "error": null,
+      "query": "ежедневные волдыри больше шести недель, нужно отличить хроническую крапивницу от острой"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 7653.36,
+      "server_latency_ms": 7650.42,
+      "num_results": 5,
+      "trace_id": "be8fd706-ae63-4657-9759-a890f3ec2de4",
+      "error": null,
+      "query": "как диагностировать СПКЯ у женщины с гиперандрогенией и нарушением овуляции"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 10108.99,
+      "server_latency_ms": 10105.09,
+      "num_results": 5,
+      "trace_id": "9c39396b-5ddc-4057-b826-3ed80a424a0e",
+      "error": null,
+      "query": "острое начало диабета у подростка с быстрым развитием метаболических нарушений, риск кетоацидоза"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8211.08,
+      "server_latency_ms": 8208.39,
+      "num_results": 5,
+      "trace_id": "fa259550-1e30-4e16-9834-2c79a0a094d0",
+      "error": null,
+      "query": "какие пациенты чаще имеют сахарный диабет 2 типа и почему он может долго протекать бессимптомно"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8587.99,
+      "server_latency_ms": 8585.17,
+      "num_results": 5,
+      "trace_id": "9cb94f5d-0bb9-43f0-95f8-21884376a064",
+      "error": null,
+      "query": "какие измерения нужны для диагностики ожирения и оценки степени избытка массы тела"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8389.53,
+      "server_latency_ms": 8386.6,
+      "num_results": 5,
+      "trace_id": "d612ccfb-f816-4938-954f-d41eb014fa87",
+      "error": null,
+      "query": "почему гипотиреоз трудно распознать по жалобам и какие проблемы есть в клинической диагностике"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9739.34,
+      "server_latency_ms": 9735.7,
+      "num_results": 5,
+      "trace_id": "b659cd67-3703-48e5-9569-e55221c15d2f",
+      "error": null,
+      "query": "нейроэндокринная опухоль может маскироваться под другие болезни из-за разных гормональных синдромов"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8590.83,
+      "server_latency_ms": 8587.82,
+      "num_results": 5,
+      "trace_id": "70f8db8d-cb34-4e47-a5c4-c98119d07232",
+      "error": null,
+      "query": "тиреоидит с временным тиреотоксикозом после деструкции ткани щитовидной железы"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8640.1,
+      "server_latency_ms": 8637.06,
+      "num_results": 5,
+      "trace_id": "65f102ee-c330-43d2-9298-35e6ca7a7814",
+      "error": null,
+      "query": "камни в почках, остеопороз и высокий кальций крови — найти проявления первичного гиперпаратиреоза"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8203.77,
+      "server_latency_ms": 8200.89,
+      "num_results": 5,
+      "trace_id": "2c14e4ea-89d1-4a71-b23b-c81b77028c2a",
+      "error": null,
+      "query": "рвота с кровью после многократной рвоты или сильного кашля — какой синдром искать в протоколах"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8767.53,
+      "server_latency_ms": 8764.49,
+      "num_results": 5,
+      "trace_id": "984e1241-49ad-4cbf-bd0f-2c3fe34b0206",
+      "error": null,
+      "query": "длительная диарея больше шести недель без крови, боль в животе, лихорадка и анемия — признаки болезни Крона"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8717.9,
+      "server_latency_ms": 8714.87,
+      "num_results": 5,
+      "trace_id": "f63401c4-d1f0-42df-83fb-abdb75c06e35",
+      "error": null,
+      "query": "алая кровь после дефекации, выпадение узлов и зуд в области ануса — симптомы хронического геморроя"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 7865.55,
+      "server_latency_ms": 7862.57,
+      "num_results": 5,
+      "trace_id": "4e192250-7e87-483c-a498-8d27d20ae921",
+      "error": null,
+      "query": "периодическая боль слева внизу живота, запоры и вздутие у пациента с дивертикулярной болезнью"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8284.0,
+      "server_latency_ms": 8281.12,
+      "num_results": 5,
+      "trace_id": "022543f8-471a-4560-b898-5130bacb0af4",
+      "error": null,
+      "query": "ночная диарея с кровью в стуле и тенезмами — описывает язвенный колит"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8729.02,
+      "server_latency_ms": 8726.01,
+      "num_results": 5,
+      "trace_id": "4bca5f3e-9a3d-4137-b920-296f23577be7",
+      "error": null,
+      "query": "какой препарат первой линии можно назначить при запоре, если диета и псиллиум не помогли"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8643.52,
+      "server_latency_ms": 8640.56,
+      "num_results": 5,
+      "trace_id": "7d986ab9-253d-451e-9859-4927cb0b2eef",
+      "error": null,
+      "query": "боль в эпигастрии после еды или натощак с иррадиацией в спину — найти клиническую картину язвенной болезни"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8266.27,
+      "server_latency_ms": 8263.21,
+      "num_results": 5,
+      "trace_id": "5e5b94a5-cb16-46de-bfb7-82c894e69023",
+      "error": null,
+      "query": "опоясывающая боль, неукротимая рвота и повышение амилазы или липазы — критерии диагностики острого панкреатита"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 7581.37,
+      "server_latency_ms": 7578.33,
+      "num_results": 5,
+      "trace_id": "19a9fb5a-9729-4414-a59d-fe9a2a0a7ca3",
+      "error": null,
+      "query": "двусторонняя сжимающая головная боль как обруч, не усиливается от обычной нагрузки"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 7952.86,
+      "server_latency_ms": 7950.32,
+      "num_results": 5,
+      "trace_id": "820f8462-4f24-4cda-af76-db154a37e01b",
+      "error": null,
+      "query": "хроническая мышечная слабость с обострениями и ремиссиями, подозрение на миастению"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 7960.18,
+      "server_latency_ms": 7957.11,
+      "num_results": 5,
+      "trace_id": "744f6228-7e78-4a41-8131-d113e18c881a",
+      "error": null,
+      "query": "онемение ульнарной зоны кисти, слабость мышц и боль в локте — признаки невропатии локтевого нерва"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8789.57,
+      "server_latency_ms": 8786.69,
+      "num_results": 5,
+      "trace_id": "db5fa4b2-049e-490a-9f58-5a68564e299c",
+      "error": null,
+      "query": "односторонняя пульсирующая головная боль в виске с тошнотой, фотофобией и повторяющимися приступами"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8638.7,
+      "server_latency_ms": 8635.65,
+      "num_results": 5,
+      "trace_id": "d1087efb-9849-41e2-a539-6d635ee768e1",
+      "error": null,
+      "query": "какие данные КТ или МРТ подтверждают диагноз геморрагического инсульта при остром очаговом дефиците"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8262.42,
+      "server_latency_ms": 8259.45,
+      "num_results": 5,
+      "trace_id": "5b5bc92c-04a6-4c6d-a744-54a00f2604db",
+      "error": null,
+      "query": "первые проявления болезни Паркинсона у пациента после 50 лет и особенности раннего начала"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8522.58,
+      "server_latency_ms": 8518.62,
+      "num_results": 5,
+      "trace_id": "7dbc061b-4325-40ab-81e0-d3ee0bdf4d0a",
+      "error": null,
+      "query": "простреливающая боль в пояснице и ноге после подъема тяжести, усиливается при кашле и наклоне"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8965.88,
+      "server_latency_ms": 8962.88,
+      "num_results": 5,
+      "trace_id": "5aac0e98-3f5a-496e-8fea-c512c09f8d2f",
+      "error": null,
+      "query": "бледность, слабость, шум в ушах, ломкие ногти и извращение вкуса — про железодефицитную анемию"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 8634.44,
+      "server_latency_ms": 8631.62,
+      "num_results": 5,
+      "trace_id": "8492bb84-6657-44d7-8e51-a59ec8184117",
+      "error": null,
+      "query": "слабость, одышка, глоссит, диспепсия и легкая желтушность при подозрении на фолиеводефицитную анемию"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 10531.46,
+      "server_latency_ms": 10525.77,
+      "num_results": 5,
+      "trace_id": "49cdeb91-96a5-43fa-8697-534206975af9",
+      "error": null,
+      "query": "острый кашель с мокротой, одышка, боль в груди при дыхании и лихорадка — найти клинику внебольничной пневмонии"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9401.72,
+      "server_latency_ms": 9396.2,
+      "num_results": 5,
+      "trace_id": "43ea1899-b3c0-48f8-b2e5-8411015d9c0b",
+      "error": null,
+      "query": "боль в пояснице, температура, озноб, тошнота и дизурия — симптомы острого пиелонефрита"
+    },
+    {
+      "success": true,
+      "status_code": 200,
+      "client_latency_ms": 9267.19,
+      "server_latency_ms": 9263.59,
+      "num_results": 5,
+      "trace_id": "f673fb4d-25aa-4939-92c4-c09dee0d4c6f",
+      "error": null,
+      "query": "острый приступ сильной боли, покраснение и припухлость сустава, затем период без жалоб — признаки подагры"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+name: "judge_faithfulness_v1"
+version: "1.0"
+language: "ru"
+purpose: "claim-level faithfulness / hallucination judge for RAG and no-RAG answers"
+
+system_prompt: |
+  Ты — строгий медицинский эксперт-оценщик (LLM-as-a-judge). Тебе будут даны:
+    - клинический случай (описание пациента),
+    - mode ответа (rag или no_rag),
+    - reference_context: набор клинических фрагментов (тех же самых для
+      обоих режимов; для режима no_rag модель этих фрагментов НЕ видела,
+      но судить её claims надо относительно этого reference),
+    - claims: список конкретных утверждений, извлечённых из ответа модели.
+
+  Твоя задача — для КАЖДОГО claim определить:
+    - подтверждён ли он в reference_context;
+    - в случае RAG — действительно ли указанные в claim citations
+      (source_id) реально поддерживают этот claim в reference_context;
+    - какие из source_id (S1..SN) поддерживают claim.
+
+  ===========================================
+  ОБЯЗАТЕЛЬНЫЕ ЖЁСТКИЕ ПРАВИЛА
+  ===========================================
+
+  1. Оценивай ТОЛЬКО по reference_context. НЕ используй свои внешние
+     медицинские знания. Если в reference_context нет информации, чтобы
+     подтвердить или опровергнуть claim — ставь "not_enough_information"
+     или "unsupported", в зависимости от того, насколько утверждение
+     специфично.
+
+  2. support_status — одно из (точно одно):
+       - "supported": claim прямо подтверждается одним или несколькими
+         фрагментами reference_context.
+       - "partially_supported": часть claim подтверждена, но есть
+         обобщения, экстраполяции или недостающие детали.
+       - "unsupported": claim не находится в reference_context (ни в
+         какой форме); это потенциальная галлюцинация.
+       - "contradicted": claim прямо противоречит reference_context.
+       - "not_enough_information": в reference_context недостаточно
+         информации для уверенной оценки claim.
+
+  3. support_score — число в [0.0, 1.0]:
+       - supported: 0.9–1.0
+       - partially_supported: 0.4–0.8
+       - unsupported: 0.0–0.2
+       - contradicted: 0.0
+       - not_enough_information: 0.3–0.5
+
+  4. Для RAG-mode (mode == "rag"):
+       - citation_supports_claim: true, если хотя бы одна из citation,
+         указанных в claim (по source_id), действительно содержит
+         подтверждение этого claim в reference_context. false, если ни
+         одна не подтверждает. null, если у claim вообще нет citation.
+       - uses_valid_citation: true, если все source_id из citations
+         claim присутствуют в reference_context (S1..SN); false если
+         хотя бы один source_id не из набора. null, если citations пуст.
+
+  5. Для no_rag-mode (mode == "no_rag"):
+       - citation_supports_claim: всегда null (no_rag не имеет citations).
+       - uses_valid_citation: всегда null.
+       - Но support_status / support_score оцениваются ТЕМ ЖЕ способом
+         относительно reference_context (apples-to-apples сравнение).
+
+  6. supporting_source_ids — список source_id (S1, S2, …), которые
+     реально поддерживают claim в reference_context. Может быть пуст для
+     unsupported / contradicted / not_enough_information.
+
+  7. Список claim_evaluations должен:
+       - содержать ровно столько элементов, сколько было входных claims;
+       - сохранять входные claim_id и claim_text БЕЗ изменений;
+       - быть в том же порядке, что и входные claims.
+
+  8. Поле overall:
+       - faithfulness_score: доля supported среди всех claims, число в
+         [0.0, 1.0]. Если claims пустой — 0.0.
+       - hallucination_rate: доля (unsupported + contradicted) среди всех
+         claims, число в [0.0, 1.0]. Если claims пустой — 0.0.
+       - summary: 1–2 предложения общего вывода об ответе.
+
+  9. ФОРМАТ. Ответ — СТРОГО валидный JSON по заданной схеме. Никакого
+     текста до или после JSON, никаких markdown-блоков.
+
+user_prompt_template: |
+  case_id: {case_id}
+  mode: {mode}
+
+  Описание пациента (для контекста, не использовать как источник истины):
+  """
+  {patient_case}
+  """
+
+  Reference context (клинические фрагменты — единственный источник правды
+  для оценки claims; нумерация S1..SN):
+  {reference_context}
+
+  Claims, извлечённые из ответа модели (оцени каждый):
+  {claims_json}
+
+  Верни ответ строго в JSON по схеме:
+  {json_schema}
+
+  Чек-лист:
+  - [ ] claim_evaluations.length == входное количество claims.
+  - [ ] У каждого claim сохранён claim_id и claim_text БЕЗ изменений.
+  - [ ] Используются только статусы supported / partially_supported /
+        unsupported / contradicted / not_enough_information.
+  - [ ] Для no_rag-mode citation_supports_claim и uses_valid_citation = null.
+  - [ ] Для rag-mode: если у claim есть хотя бы одна citation, поля
+        citation_supports_claim и uses_valid_citation НЕ null.
+  - [ ] supporting_source_ids — список вида ["S1","S2"]; пустой,
+        если ни один источник не поддерживает claim.
+  - [ ] overall.faithfulness_score и overall.hallucination_rate
+        в [0.0, 1.0] и согласованы с claim_evaluations.
+  - [ ] Ответ — единый валидный JSON.
+
+json_schema: |
+  {
+    "case_id": "string",
+    "mode": "rag|no_rag",
+    "claim_evaluations": [
+      {
+        "claim_id": "string",
+        "claim_text": "string",
+        "support_status": "supported|partially_supported|unsupported|contradicted|not_enough_information",
+        "support_score": 0.0,
+        "citation_supports_claim": true,
+        "uses_valid_citation": true,
+        "supporting_source_ids": ["S1"],
+        "explanation": "string",
+        "problems": ["string"]
+      }
+    ],
+    "overall": {
+      "faithfulness_score": 0.0,
+      "hallucination_rate": 0.0,
+      "summary": "string"
+    }
+  }
+
+rules:
+  - "Оценивать только по reference_context, без внешних знаний."
+  - "Сохранять claim_id и claim_text без изменений; длина и порядок claim_evaluations совпадают со входом."
+  - "support_status — одно из 5 фиксированных значений."
+  - "Для no_rag-mode citation-поля = null; для rag-mode — реальные true/false."
+  - "Ответ — строго валидный JSON, без markdown и без текста вне JSON."

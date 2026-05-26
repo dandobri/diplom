@@ -1,0 +1,43 @@
+# Core
+numpy>=1.26
+pandas>=2.0
+tqdm>=4.66
+pyyaml>=6.0
+scikit-learn>=1.3
+
+# Embeddings
+sentence-transformers>=2.7
+transformers>=4.40
+huggingface-hub>=0.23
+
+# Torch — на DataSphere обычно уже стоит CUDA-сборка.
+# Если нет, ставить через pytorch.org с правильным индексом для CUDA.
+torch>=2.1
+
+# OpenAI SDK — нужен для openai_compatible LLM backend и для embedding text-embedding-3-*.
+# Если планируется только Ollama / mock LLM — можно не ставить.
+openai>=1.30
+
+# Ollama backend и любые HTTP-вызовы — requests.
+requests>=2.31
+
+# REST API (пункт 9 ВКР: программный интерфейс RAG-модуля)
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.0
+
+# pgvector import / тесты на векторную БД.
+# psycopg[binary] — драйвер Postgres (v3). pgvector — адаптер типа vector для psycopg.
+psycopg[binary]>=3.1
+pgvector>=0.2.5
+
+# BGE-M3 — sentence-transformers справляется с dense embeddings.
+# Для multi-vector / sparse режимов или для FlagReranker поставить дополнительно:
+# FlagEmbedding>=1.2
+
+# Ускорение загрузки моделей и инференса на больших GPU:
+# accelerate>=0.30
+
+# Доп. для удобства
+ipykernel>=6.29
+jupyter>=1.0

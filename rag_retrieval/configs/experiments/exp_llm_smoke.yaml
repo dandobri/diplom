@@ -1,0 +1,53 @@
+experiment:
+  name: "exp_llm_smoke"
+  description: "Быстрый smoke-test: только LLM-генерация (RAG + no-RAG + сравнение)"
+  output_dir: "runs/exp_llm_smoke"
+  seed: 42
+  overwrite: true
+
+data:
+  clinical_cases_path: "data/retrieval_eval_queries_plus_hard_v1.jsonl"
+  retrieval_queries_path: "data/retrieval_eval_queries_plus_hard_v1.jsonl"
+  chunks_path: "data/chunks_v1.jsonl"
+
+artifacts:
+  embeddings_root: "outputs/embeddings"
+  embeddings_dir: "outputs/embeddings/e5_large"
+
+retrieval_eval:
+  enabled: false
+
+reranking_eval:
+  enabled: false
+  embedding_model_key: "e5_large"
+  embedding_config: "configs/embedding_models.yaml"
+  embeddings_dir: "outputs/embeddings/e5_large"
+  reranker_key: "bge_reranker_v2_m3"
+  reranker_config: "configs/rerankers.yaml"
+
+generation:
+  enabled: true
+  limit: 5
+  llm_config: "configs/llm.yaml"
+  llm_provider: null
+  llm_model: null
+  prompt_config_rag: "configs/prompts/rag_diagnostic_v1.yaml"
+  prompt_config_no_rag: "configs/prompts/no_rag_diagnostic_v1.yaml"
+  run_rag: true
+  run_no_rag: true
+  device: "auto"
+  embedding_model_key: "e5_large"
+  embedding_config: "configs/embedding_models.yaml"
+  embeddings_dir: "outputs/embeddings/e5_large"
+  reranker_key: "bge_reranker_v2_m3"
+  reranker_config: "configs/rerankers.yaml"
+  candidate_top_k: 30
+  final_top_k: 5
+  context_selection: "anchor_page"
+  context_page_tolerance: 1
+  mode_cases_field:
+    case_id_field: "query_id"
+    patient_case_field: "query"
+
+comparison:
+  enabled: true

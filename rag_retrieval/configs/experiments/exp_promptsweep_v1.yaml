@@ -1,0 +1,31 @@
+extends: "exp_full_v1.yaml"
+
+experiment:
+  name: "exp_promptsweep_v1"
+  description: "Контрольный prompt-sweep на 20 кейсах: N RAG-prompt вариантов vs общий no-RAG"
+  output_dir: "runs/exp_promptsweep_v1"
+  overwrite: true
+
+data:
+  clinical_cases_path: "data/clinical_cases_v1.jsonl"
+
+generation:
+  enabled: true
+  limit: 20
+  llm_config: "configs/llm.yaml"
+  prompt_config_rag: "configs/prompts/rag_diagnostic_v2_strict.yaml"   # default; override через --prompts
+  prompt_config_no_rag: "configs/prompts/no_rag_diagnostic_v2_baseline.yaml"
+  mode_cases_field:
+    case_id_field: "case_id"
+    patient_case_field: "patient_case"
+
+llm_evaluation:
+  enabled: true
+  limit: 20
+  llm_config: "configs/llm.yaml"
+  judge_prompt_config: "configs/prompts/judge_faithfulness_v1.yaml"
+  citation_judge_prompt_config: "configs/prompts/judge_citation_accuracy_v1.yaml"
+  relevance_judge_prompt_config: "configs/prompts/judge_answer_relevance_v1.yaml"
+  judge_max_retries: 2
+  max_claims_per_answer: 20
+  mode: "both"

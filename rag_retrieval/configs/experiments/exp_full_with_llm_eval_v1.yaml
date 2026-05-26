@@ -1,0 +1,41 @@
+extends: "exp_full_v1.yaml"
+
+experiment:
+  name: "exp_full_with_llm_eval_v1"
+  description: "Full RAG + LLM evaluation (faithfulness/hallucination/citation/relevance)"
+  output_dir: "runs/exp_full_with_llm_eval_v1"
+  overwrite: true
+
+data:
+  # Новый файл: clinical cases с case_id/patient_case (а не query_id/query).
+  clinical_cases_path: "data/clinical_cases_v1.jsonl"
+
+generation:
+  limit: null              # все кейсы из data/clinical_cases_v1.jsonl
+  prompt_config_rag: "configs/prompts/rag_diagnostic_v2_strict.yaml"
+  prompt_config_no_rag: "configs/prompts/no_rag_diagnostic_v2_baseline.yaml"
+  # Retrieval параметры наследуются из reranking_eval (e5_large + BGE + anchor_page, top_k=5).
+  # Прошлый эксперимент с top_k=7 не дал заметного улучшения на judge-метриках —
+  # оставляем 5 для воспроизводимости с retrieval-эвалом.
+  # clinical_cases_v1.jsonl уже использует канонические поля — оверрайдим
+  # mode_cases_field на дефолт (case_id / patient_case).
+  mode_cases_field:
+    case_id_field: "case_id"
+    patient_case_field: "patient_case"
+
+llm_evaluation:
+  enabled: true
+  pairs_path: null            # null → возьмём <output_dir>/generation/rag_vs_no_rag_pairs.jsonl
+  rag_answers_path: null
+  no_rag_answers_path: null
+  llm_config: "configs/llm.yaml"
+  judge_provider: null        # null = из llm.yaml. Для smoke — "mock".
+  judge_model: null
+  judge_prompt_config: "configs/prompts/judge_faithfulness_v1.yaml"
+  citation_judge_prompt_config: "configs/prompts/judge_citation_accuracy_v1.yaml"
+  relevance_judge_prompt_config: "configs/prompts/judge_answer_relevance_v1.yaml"
+  limit: null              # оценить все кейсы
+  mode: "both"
+  max_claims_per_answer: 20
+  judge_max_retries: 2
+  resume: false

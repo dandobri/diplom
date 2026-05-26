@@ -1,0 +1,27 @@
+api:
+  title: "Medical RAG Retrieval API"
+  version: "0.1.0"
+  host: "0.0.0.0"
+  port: 8000
+  log_level: "info"
+
+retrieval:
+  embedding_model_key: "e5_large"
+  embeddings_dir: "outputs/embeddings/e5_large"
+  embedding_config: "configs/embedding_models.yaml"
+  reranker_key: "bge_reranker_v2_m3"
+  reranker_config: "configs/rerankers.yaml"
+  device: "auto"
+
+performance:
+  warmup_on_startup: true
+  max_query_length_chars: 4000
+  max_batch_size: 20
+
+response:
+  text_max_chars: 2000
+
+logging:
+  log_requests: true
+  log_dir: "logs/api"
+  log_file: "rag_api.log"

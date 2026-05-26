@@ -1,0 +1,88 @@
+{
+  "experiment_name": "exp_full_with_llm_eval_v1",
+  "status": "completed",
+  "started_at": "2026-05-08T20:43:08.321188+00:00",
+  "finished_at": "2026-05-08T23:14:09.423435+00:00",
+  "total_runtime_sec": 9061.102,
+  "steps": {
+    "retrieval_eval": {
+      "enabled": false,
+      "status": "skipped"
+    },
+    "reranking_eval": {
+      "enabled": false,
+      "status": "skipped"
+    },
+    "rag_generation": {
+      "enabled": true,
+      "status": "completed",
+      "started_at": "2026-05-08T20:43:08.363885+00:00",
+      "finished_at": "2026-05-08T21:55:59.969655+00:00",
+      "key_metrics": {
+        "num_answers": 73,
+        "valid_json_rate": 0.9863,
+        "avg_citation_count": 2.2877,
+        "avg_citation_coverage": 1.0,
+        "invalid_citations_total": 0
+      },
+      "output_files": [
+        "runs/exp_full_with_llm_eval_v1/generation/rag_answers.jsonl"
+      ]
+    },
+    "no_rag_generation": {
+      "enabled": true,
+      "status": "completed",
+      "started_at": "2026-05-08T21:55:59.981297+00:00",
+      "finished_at": "2026-05-08T22:04:29.845531+00:00",
+      "key_metrics": {
+        "num_answers": 73,
+        "valid_json_rate": 1.0
+      },
+      "output_files": [
+        "runs/exp_full_with_llm_eval_v1/generation/no_rag_answers.jsonl"
+      ]
+    },
+    "rag_vs_no_rag_comparison": {
+      "enabled": true,
+      "status": "completed",
+      "started_at": "2026-05-08T22:04:29.878965+00:00",
+      "finished_at": "2026-05-08T22:04:30.081692+00:00",
+      "key_metrics": {
+        "num_cases": 73,
+        "both": 73
+      },
+      "output_files": [
+        "runs/exp_full_with_llm_eval_v1/generation/rag_vs_no_rag_pairs.jsonl",
+        "runs/exp_full_with_llm_eval_v1/generation/rag_vs_no_rag_summary.csv"
+      ]
+    },
+    "llm_evaluation": {
+      "enabled": true,
+      "status": "completed",
+      "started_at": "2026-05-08T22:04:30.090236+00:00",
+      "finished_at": "2026-05-08T23:14:09.411100+00:00",
+      "key_metrics": {
+        "rag_faithfulness_soft": 0.8006,
+        "rag_hallucination_rate": 0.156,
+        "rag_citation_accuracy_rate": 0.7435,
+        "rag_citation_coverage_claim_level": 1.0,
+        "faithfulness_soft_improvement_abs": 0.4066,
+        "hallucination_rate_reduction_abs": 0.1287,
+        "rag_meets_faithfulness_target": false,
+        "rag_meets_hallucination_target": false,
+        "rag_meets_citation_accuracy_target": false,
+        "rag_meets_faithfulness_improvement_target": true
+      },
+      "output_files": [
+        "runs/exp_full_with_llm_eval_v1/llm_eval/llm_eval_metrics.json",
+        "runs/exp_full_with_llm_eval_v1/llm_eval/llm_eval_metrics.csv",
+        "runs/exp_full_with_llm_eval_v1/llm_eval/rag_vs_no_rag_eval_summary.csv",
+        "runs/exp_full_with_llm_eval_v1/llm_eval/rag_vs_no_rag_eval_summary.json",
+        "runs/exp_full_with_llm_eval_v1/llm_eval/claim_evaluations.jsonl",
+        "runs/exp_full_with_llm_eval_v1/llm_eval/case_evaluations.jsonl",
+        "runs/exp_full_with_llm_eval_v1/llm_eval/failed_judge_cases.jsonl",
+        "runs/exp_full_with_llm_eval_v1/llm_eval/llm_eval_report.md"
+      ]
+    }
+  }
+}
